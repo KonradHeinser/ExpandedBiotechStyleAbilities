@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <AbilityDef>
+        <defName>EBSA_FireSpray</defName>
+        <label>fire spray</label>
+        <description>Spray a sticky flammable substance from glands in the neck up through the mouth and all over the target area. The substance will stick to targets and burn them, potentially setting them and the surrounding area on fire.</description>
+        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <aiCanUse>true</aiCanUse>
+        <displayOrder>300</displayOrder>
+        <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+        <warmupStartSound>FireSpew_Warmup</warmupStartSound>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>8.9</range>
+            <warmupTime>0.5</warmupTime>
+            <soundCast>FireSpew_Resolve</soundCast>
+            <targetParams>
+                <canTargetLocations>true</canTargetLocations>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilitySprayLiquid">
+                <projectileDef>EBSA_Proj_ChemFire</projectileDef>
+                <numCellsToHit>9</numCellsToHit>
+                <sprayEffecter>EBSA_FireSpray_Directional</sprayEffecter>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_FoamSpew</defName>
+        <label>foam spew</label>
+        <description>Spit a stream of a sticky, firefoam-like substance from the mouth. The bile will quickly douse anything or anyone it hits, and also leave a layer of firefoam-like on the ground.\n\nThe bile is generated and stored by a small organ in the neck.</description>
+        <iconPath>UI/Icons/Genes/Gene_FoamSpray</iconPath>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <charges>2</charges> <!--Has one less charge because it can cover a larger area, with the only downside being that the pawn must be closer-->
+        <aiCanUse>true</aiCanUse>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+        <warmupStartSound>FoamSpray_Warmup</warmupStartSound>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>7.9</range>
+            <warmupTime>1</warmupTime>
+            <soundCast>FoamSpray_Resolve</soundCast>
+            <targetParams>
+                <canTargetLocations>true</canTargetLocations>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="EBSGFramework.CompProperties_AbilitySpew">
+                <range>7.9</range>
+                <damage>Extinguish</damage>
+                <filthDef>Filth_FireFoam</filthDef>
+                <effecterDef>EBSA_Foam_Spew</effecterDef>
+                <angle>45</angle> <!--Angles under 40 tend to start skipping some tiles close to the pawn occassionally-->
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_AcidSpew</defName>
+        <label>acid spew</label>
+        <description>Spit a stream of a sticky, firefoam-like substance from the mouth. The bile will quickly douse anything or anyone it hits, and also leave a layer of firefoam-like on the ground.\n\nThe bile is generated and stored by a small organ in the neck.</description>
+        <iconPath>UI/Icons/Genes/Gene_AcidSpray</iconPath>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <aiCanUse>true</aiCanUse>
+        <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+        <warmupStartSound>AcidSpray_Warmup</warmupStartSound>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>7.9</range>
+            <warmupTime>1</warmupTime>
+            <soundCast>AcidSpray_Resolve</soundCast>
+            <targetParams>
+                <canTargetLocations>true</canTargetLocations>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="EBSGFramework.CompProperties_AbilitySpew">
+                <range>7.9</range>
+                <damage>AcidBurn</damage>
+                <filthDef>Filth_SpentAcid</filthDef>
+                <amount>25</amount>
+                <effecterDef>EBSA_AcidSpew</effecterDef>
+                <angle>45</angle> <!--Angles under 40 tend to start skipping some tiles close to the pawn occassionally-->
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_BloodSpew</defName>
+        <label>blood spew</label>
+        <description>Spit a stream of blood from the mouth at a high enough velocity to pierce even metal.\n\nWill cause 30% bloodloss.</description>
+        <iconPath>UI/Icons/Genes/Gene_AcidSpray</iconPath>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <aiCanUse>true</aiCanUse>
+        <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+        <warmupStartSound>AcidSpray_Warmup</warmupStartSound>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>7.9</range>
+            <warmupTime>1</warmupTime>
+            <soundCast>AcidSpray_Resolve</soundCast>
+            <targetParams>
+                <canTargetLocations>true</canTargetLocations>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="EBSGFramework.CompProperties_AbilitySpew">
+                <range>5.9</range>
+                <damage>RangedStab</damage>
+                <filthDef>EBSA_BloodSpew</filthDef>
+                <amount>30</amount>
+                <effecterDef>EBSA_BloodSpew</effecterDef>
+                <angle>45</angle> <!--Angles under 40 tend to start skipping some tiles close to the pawn occassionally-->
+            </li>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>BloodLoss</hediffDef>
+                <severity>0.3</severity>
+                <onlyApplyToSelf>True</onlyApplyToSelf>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_BloodSpew_Hemogen</defName>
+        <label>blood spew</label>
+        <description>Spit a stream of blood from the mouth at a high enough velocity to pierce even metal.</description>
+        <iconPath>UI/Icons/Genes/Gene_AcidSpray</iconPath>
+        <cooldownTicksRange>3000</cooldownTicksRange>
+        <aiCanUse>true</aiCanUse>
+        <warmupStartSound>AcidSpray_Warmup</warmupStartSound>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>7.9</range>
+            <warmupTime>1</warmupTime>
+            <soundCast>AcidSpray_Resolve</soundCast>
+            <targetParams>
+                <canTargetLocations>true</canTargetLocations>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="EBSGFramework.CompProperties_AbilitySpew">
+                <range>5.9</range>
+                <damage>RangedStab</damage>
+                <filthDef>EBSA_BloodSpew</filthDef>
+                <amount>30</amount>
+                <effecterDef>EBSA_BloodSpew</effecterDef>
+                <angle>45</angle> <!--Angles under 40 tend to start skipping some tiles close to the pawn occassionally-->
+            </li>
+            <li Class="CompProperties_AbilityHemogenCost">
+                <hemogenCost>0.1</hemogenCost> <!--Slightly higher efficiency than hemogenic converter, which also makes it a bit better than the non-hemo version-->
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_Chemburst</defName>
+        <label>chemburst</label>
+        <description>Eject unstable from the pores that ignite as soon as they touch something flammable, and leave some burning chemfuel around them.</description>
+        <iconPath>EBSA/Gene_Chemburst</iconPath>
+        <jobDef>CastAbilityOnThingWithoutWeapon</jobDef>
+        <canUseAoeToGetTargets>True</canUseAoeToGetTargets>
+        <targetRequired>false</targetRequired>
+        <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
+        <showCastingProgressBar>true</showCastingProgressBar>
+        <warmupStartSound>FireSpew_Warmup</warmupStartSound>
+        <aiCanUse>True</aiCanUse>
+        <cooldownTicksRange>2500</cooldownTicksRange>
+        <statBases>
+            <Ability_EffectRadius>3.9</Ability_EffectRadius>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>3.9</range>
+            <drawAimPie>false</drawAimPie>
+            <warmupTime>1</warmupTime>
+            <requireLineOfSight>False</requireLineOfSight>
+            <targetParams>
+                <canTargetPawns>True</canTargetPawns>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="EBSGFramework.CompProperties_EBSGBurst">
+                <radius>3.9</radius>
+                <damageDef>Flame</damageDef>
+                <injureSelf>false</injureSelf>
+                <damageAmount>20</damageAmount>
+                <excludeRadius>0.9</excludeRadius>
+                <chanceToStartFire>1</chanceToStartFire>
+                <preExplosionThing>Filth_Fuel</preExplosionThing>
+                <preExplosionThingChance>0.1</preExplosionThingChance>
+                <extraGasType>None</extraGasType>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef ParentName="LongJump">
+        <defName>EBSA_Pounce</defName>
+        <label>pounce</label>
+        <description>Jump to a distant location using a super-strong leg muscle.</description>
+        <iconPath>EBSA/Gene_Pounce</iconPath>
+        <cooldownTicksRange>2500</cooldownTicksRange>
+        <comps Inherit="False" />
+    </AbilityDef>
+
+    <!--Genetic Psycasts-->
+    <AbilityDef>
+        <defName>EBSA_DeadenNerves</defName>
+        <label>deaden nerves</label>
+        <description>Blocks pain pathways in the the caster's brain for a short time. This can allow a person to move and act even with grievous injuries which would normally incapacitate them.</description>
+        <iconPath>UI/Abilities/Painblock</iconPath>
+        <hotKey>Misc1</hotKey>
+        <hostile>false</hostile>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <targetRequired>false</targetRequired>
+        <cooldownTicksRange>3000</cooldownTicksRange>
+        <statBases>
+            <Ability_Duration>84</Ability_Duration>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.25</warmupTime>
+            <range>0.9</range>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>EBSA_DeadendNerves</hediffDef>
+            </li>
+        </comps>
+    </AbilityDef>
+    
+</Defs>

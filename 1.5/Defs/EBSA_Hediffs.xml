@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <HediffDef>
+        <defName>EBSA_DeadendNerves</defName>
+        <label>deadend nerves</label>
+        <description>Pyschologically-induced pain insensitivity.</description>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <painFactor>0.1</painFactor>
+            </li>
+        </stages>
+    </HediffDef>
+</Defs>
