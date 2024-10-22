@@ -208,6 +208,40 @@
         <comps Inherit="False" />
     </AbilityDef>
 
+    <!--Hemogenic Pawns-->
+
+    <AbilityDef>
+        <defName>EBSA_BloodyEclipse</defName>
+        <label>bloody eclipse</label>
+        <description>Release archite infused hemogen into the air to cause the clouds to rapidly darken, blotting out the sun in the area for several days.</description>
+        <iconPath>UI/Icons/Genes/Gene_LongJumpLegs</iconPath>
+        <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+        <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+        <aiCanUse>False</aiCanUse>
+        <targetRequired>false</targetRequired>
+        <cooldownTicksRange>300000</cooldownTicksRange> <!--5 day cooldown-->
+        <hostile>False</hostile>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>10</warmupTime>
+            <range>0.9</range>
+            <targetParams>
+                <canTargetSelf>true</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="EBSGFramework.CompProperties_TriggerGameCondition">
+                <gameCondition>Eclipse</gameCondition>
+                <ticks>240000</ticks> <!--4 days-->
+            </li>
+            <li Class="CompProperties_AbilityHemogenCost">
+                <hemogenCost>0.8</hemogenCost>
+            </li>
+        </comps>
+    </AbilityDef>
+
     <!--Genetic Psycasts-->
     <AbilityDef>
         <defName>EBSA_DeadenNerves</defName>

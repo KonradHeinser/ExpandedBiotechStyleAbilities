@@ -217,7 +217,25 @@
                 <li><symbol>hop</symbol></li>
             </prefixSymbols>
         </symbolPack>
-    </GeneDef>    
+    </GeneDef>
+
+    <!--Hemogenic Pawns-->
+    
+    <GeneDef>
+        <defName>EBSA_BloodyEclipse</defName>
+        <label>bloody eclipse</label>
+        <description>Carriers of this gene can release a bunch of archite infused hemogen into the air that will settle in the clouds high above, and cause them to darken in a way that blots out the sun, and gives onlookers a similar spectacle to an eclipse.</description>
+        <iconPath>UI/Icons/Genes/Gene_LongJumpLegs</iconPath>
+        <prerequisite>Hemogenic</prerequisite>
+        <displayCategory>Hemogen</displayCategory>
+        <abilities>
+            <li>EBSA_BloodyEclipse</li>
+        </abilities>
+        <descriptionHyperlinks>
+            <AbilityDef>EBSA_BloodyEclipse</AbilityDef>
+        </descriptionHyperlinks>
+        <biostatArc>1</biostatArc>
+    </GeneDef>
 
     <!--Genetic Psycasts-->
     <GeneDef>
