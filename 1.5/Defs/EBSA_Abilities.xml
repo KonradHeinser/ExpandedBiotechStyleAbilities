@@ -6,9 +6,9 @@
         <description>Spray a sticky flammable substance from glands in the neck up through the mouth and all over the target area. The substance will stick to targets and burn them, potentially setting them and the surrounding area on fire.</description>
         <iconPath>EBSA/Gene_FireSpray</iconPath>
         <cooldownTicksRange>30000</cooldownTicksRange>
-        <aiCanUse>true</aiCanUse>
+        <aiCanUse>True</aiCanUse>
         <displayOrder>300</displayOrder>
-        <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
         <warmupStartSound>FireSpew_Warmup</warmupStartSound>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
@@ -16,7 +16,7 @@
             <warmupTime>0.5</warmupTime>
             <soundCast>FireSpew_Resolve</soundCast>
             <targetParams>
-                <canTargetLocations>true</canTargetLocations>
+                <canTargetLocations>True</canTargetLocations>
             </targetParams>
         </verbProperties>
         <comps>
@@ -35,9 +35,9 @@
         <iconPath>UI/Icons/Genes/Gene_FoamSpray</iconPath>
         <cooldownTicksRange>30000</cooldownTicksRange>
         <charges>2</charges> <!--Has one less charge because it can cover a larger area, with the only downside being that the pawn must be closer-->
-        <aiCanUse>true</aiCanUse>
-        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
-        <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+        <aiCanUse>True</aiCanUse>
+        <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
         <warmupStartSound>FoamSpray_Warmup</warmupStartSound>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
@@ -45,7 +45,7 @@
             <warmupTime>1</warmupTime>
             <soundCast>FoamSpray_Resolve</soundCast>
             <targetParams>
-                <canTargetLocations>true</canTargetLocations>
+                <canTargetLocations>True</canTargetLocations>
             </targetParams>
         </verbProperties>
         <comps>
@@ -65,8 +65,8 @@
         <description>Spit a stream of a sticky, firefoam-like substance from the mouth. The bile will quickly douse anything or anyone it hits, and also leave a layer of firefoam-like on the ground.\n\nThe bile is generated and stored by a small organ in the neck.</description>
         <iconPath>UI/Icons/Genes/Gene_AcidSpray</iconPath>
         <cooldownTicksRange>30000</cooldownTicksRange>
-        <aiCanUse>true</aiCanUse>
-        <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+        <aiCanUse>True</aiCanUse>
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
         <warmupStartSound>AcidSpray_Warmup</warmupStartSound>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
@@ -74,7 +74,7 @@
             <warmupTime>1</warmupTime>
             <soundCast>AcidSpray_Resolve</soundCast>
             <targetParams>
-                <canTargetLocations>true</canTargetLocations>
+                <canTargetLocations>True</canTargetLocations>
             </targetParams>
         </verbProperties>
         <comps>
@@ -95,8 +95,8 @@
         <description>Spit a stream of blood from the mouth at a high enough velocity to pierce even metal.\n\nWill cause 30% bloodloss.</description>
         <iconPath>UI/Icons/Genes/Gene_AcidSpray</iconPath>
         <cooldownTicksRange>30000</cooldownTicksRange>
-        <aiCanUse>true</aiCanUse>
-        <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+        <aiCanUse>True</aiCanUse>
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
         <warmupStartSound>AcidSpray_Warmup</warmupStartSound>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
@@ -104,7 +104,7 @@
             <warmupTime>1</warmupTime>
             <soundCast>AcidSpray_Resolve</soundCast>
             <targetParams>
-                <canTargetLocations>true</canTargetLocations>
+                <canTargetLocations>True</canTargetLocations>
             </targetParams>
         </verbProperties>
         <comps>
@@ -126,12 +126,97 @@
     </AbilityDef>
 
     <AbilityDef>
+        <defName>EBSA_Chemburst</defName>
+        <label>chemburst</label>
+        <description>Eject unstable from the pores that ignite as soon as they touch something flammable, and leave some burning chemfuel around them.</description>
+        <iconPath>EBSA/Gene_Chemburst</iconPath>
+        <canUseAoeToGetTargets>True</canUseAoeToGetTargets>
+        <targetRequired>False</targetRequired>
+        <ai_SearchAOEForTargets>True</ai_SearchAOEForTargets>
+        <showCastingProgressBar>True</showCastingProgressBar>
+        <warmupStartSound>FireSpew_Warmup</warmupStartSound>
+        <aiCanUse>True</aiCanUse>
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>3.9</range>
+            <drawAimPie>False</drawAimPie>
+            <warmupTime>1</warmupTime>
+            <requireLineOfSight>False</requireLineOfSight>
+            <targetParams>
+                <canTargetPawns>True</canTargetPawns>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="EBSGFramework.CompProperties_EBSGBurst">
+                <radius>3.9</radius>
+                <damageDef>Flame</damageDef>
+                <injureSelf>False</injureSelf>
+                <damageAmount>20</damageAmount>
+                <excludeRadius>0.9</excludeRadius>
+                <chanceToStartFire>1</chanceToStartFire>
+                <preExplosionThing>Filth_Fuel</preExplosionThing>
+                <preExplosionThingChance>0.1</preExplosionThingChance>
+                <extraGasType>None</extraGasType>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_FoamBurst</defName>
+        <label>foam burst</label>
+        <description>Eject firefoam from the pores that douse all flames around them and leave firefoam coating the ground.</description>
+        <iconPath>EBSA/Gene_Chemburst</iconPath>
+        <canUseAoeToGetTargets>True</canUseAoeToGetTargets>
+        <targetRequired>False</targetRequired>
+        <showCastingProgressBar>True</showCastingProgressBar>
+        <warmupStartSound>FoamSpray_Warmup</warmupStartSound>
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
+        <aiCanUse>False</aiCanUse>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>4.9</range>
+            <drawAimPie>False</drawAimPie>
+            <warmupTime>1</warmupTime>
+            <requireLineOfSight>False</requireLineOfSight>
+            <targetParams>
+                <canTargetPawns>True</canTargetPawns>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="EBSGFramework.CompProperties_EBSGBurst">
+                <radius>4.9</radius>
+                <damageDef>Extinguish</damageDef>
+                <injureSelf>True</injureSelf>
+                <preExplosionThing>Filth_FireFoam</preExplosionThing>
+                <preExplosionThingChance>1</preExplosionThingChance>
+                <extraGasType>None</extraGasType>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef ParentName="LongJump">
+        <defName>EBSA_Pounce</defName>
+        <label>pounce</label>
+        <description>Jump to a distant location using a super-strong leg muscle.</description>
+        <iconPath>EBSA/Gene_Pounce</iconPath>
+        <cooldownTicksRange>2500</cooldownTicksRange>
+        <comps Inherit="False" />
+    </AbilityDef>
+
+    <!--Hemogenic Pawns-->
+
+    <AbilityDef>
         <defName>EBSA_BloodSpew_Hemogen</defName>
         <label>blood spew</label>
         <description>Spit a stream of blood from the mouth at a high enough velocity to pierce even metal.</description>
         <iconPath>UI/Icons/Genes/Gene_AcidSpray</iconPath>
         <cooldownTicksRange>3000</cooldownTicksRange>
-        <aiCanUse>true</aiCanUse>
+        <aiCanUse>True</aiCanUse>
         <warmupStartSound>AcidSpray_Warmup</warmupStartSound>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
@@ -139,7 +224,7 @@
             <warmupTime>1</warmupTime>
             <soundCast>AcidSpray_Resolve</soundCast>
             <targetParams>
-                <canTargetLocations>true</canTargetLocations>
+                <canTargetLocations>True</canTargetLocations>
             </targetParams>
         </verbProperties>
         <comps>
@@ -158,69 +243,16 @@
     </AbilityDef>
 
     <AbilityDef>
-        <defName>EBSA_Chemburst</defName>
-        <label>chemburst</label>
-        <description>Eject unstable from the pores that ignite as soon as they touch something flammable, and leave some burning chemfuel around them.</description>
-        <iconPath>EBSA/Gene_Chemburst</iconPath>
-        <jobDef>CastAbilityOnThingWithoutWeapon</jobDef>
-        <canUseAoeToGetTargets>True</canUseAoeToGetTargets>
-        <targetRequired>false</targetRequired>
-        <ai_SearchAOEForTargets>true</ai_SearchAOEForTargets>
-        <showCastingProgressBar>true</showCastingProgressBar>
-        <warmupStartSound>FireSpew_Warmup</warmupStartSound>
-        <aiCanUse>True</aiCanUse>
-        <cooldownTicksRange>2500</cooldownTicksRange>
-        <statBases>
-            <Ability_EffectRadius>3.9</Ability_EffectRadius>
-        </statBases>
-        <verbProperties>
-            <verbClass>Verb_CastAbility</verbClass>
-            <range>3.9</range>
-            <drawAimPie>false</drawAimPie>
-            <warmupTime>1</warmupTime>
-            <requireLineOfSight>False</requireLineOfSight>
-            <targetParams>
-                <canTargetPawns>True</canTargetPawns>
-                <canTargetSelf>True</canTargetSelf>
-            </targetParams>
-        </verbProperties>
-        <comps>
-            <li Class="EBSGFramework.CompProperties_EBSGBurst">
-                <radius>3.9</radius>
-                <damageDef>Flame</damageDef>
-                <injureSelf>false</injureSelf>
-                <damageAmount>20</damageAmount>
-                <excludeRadius>0.9</excludeRadius>
-                <chanceToStartFire>1</chanceToStartFire>
-                <preExplosionThing>Filth_Fuel</preExplosionThing>
-                <preExplosionThingChance>0.1</preExplosionThingChance>
-                <extraGasType>None</extraGasType>
-            </li>
-        </comps>
-    </AbilityDef>
-
-    <AbilityDef ParentName="LongJump">
-        <defName>EBSA_Pounce</defName>
-        <label>pounce</label>
-        <description>Jump to a distant location using a super-strong leg muscle.</description>
-        <iconPath>EBSA/Gene_Pounce</iconPath>
-        <cooldownTicksRange>2500</cooldownTicksRange>
-        <comps Inherit="False" />
-    </AbilityDef>
-
-    <!--Hemogenic Pawns-->
-
-    <AbilityDef>
         <defName>EBSA_BloodyEclipse</defName>
         <label>bloody eclipse</label>
         <description>Release archite infused hemogen into the air to cause the clouds to rapidly darken, blotting out the sun in the area for several days.</description>
         <iconPath>UI/Icons/Genes/Gene_LongJumpLegs</iconPath>
         <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
         <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
-        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
-        <sendMessageOnCooldownComplete>true</sendMessageOnCooldownComplete>
+        <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
         <aiCanUse>False</aiCanUse>
-        <targetRequired>false</targetRequired>
+        <targetRequired>False</targetRequired>
         <cooldownTicksRange>300000</cooldownTicksRange> <!--5 day cooldown-->
         <hostile>False</hostile>
         <verbProperties>
@@ -228,7 +260,7 @@
             <warmupTime>10</warmupTime>
             <range>0.9</range>
             <targetParams>
-                <canTargetSelf>true</canTargetSelf>
+                <canTargetSelf>True</canTargetSelf>
             </targetParams>
         </verbProperties>
         <comps>
@@ -243,15 +275,16 @@
     </AbilityDef>
 
     <!--Genetic Psycasts-->
+    
     <AbilityDef>
         <defName>EBSA_DeadenNerves</defName>
         <label>deaden nerves</label>
         <description>Blocks pain pathways in the the caster's brain for a short time. This can allow a person to move and act even with grievous injuries which would normally incapacitate them.</description>
         <iconPath>UI/Abilities/Painblock</iconPath>
         <hotKey>Misc1</hotKey>
-        <hostile>false</hostile>
-        <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
-        <targetRequired>false</targetRequired>
+        <hostile>False</hostile>
+        <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
+        <targetRequired>False</targetRequired>
         <cooldownTicksRange>3000</cooldownTicksRange>
         <statBases>
             <Ability_Duration>84</Ability_Duration>
@@ -272,4 +305,36 @@
         </comps>
     </AbilityDef>
     
+    <AbilityDef Abstract="True" Name="EBSA_Needle">
+        <charges>6</charges>
+        <cooldownPerCharge>True</cooldownPerCharge>
+        <cooldownTicksRange>120000</cooldownTicksRange>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>1</warmupTime>
+            <range>19.9</range>
+            <targetParams>
+                <canTargetSelf>False</canTargetSelf>
+                <canTargetMechs>False</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+    </AbilityDef>
+
+    <AbilityDef ParentName="EBSA_Needle">
+        <defName>EBSA_BerserkNeedle</defName>
+        <label>berserk needle</label>
+        <description>Shoot a small needle from the wrist that causes the target become filled with irrational rage for a couple hours.</description>
+        <iconPath>UI/Abilities/Painblock</iconPath>
+        <statBases>
+            <Ability_Duration>42</Ability_Duration>
+        </statBases>
+        <comps>
+            <li Class="CompProperties_AbilityGiveMentalState">
+                <compClass>CompAbilityEffect_GiveMentalState</compClass>
+                <stateDef>Berserk</stateDef>
+                <stateDefForMechs>BerserkMechanoid</stateDefForMechs> <!--Shouldn't ever occur, but gotta be safe-->
+                <goodwillImpact>-75</goodwillImpact>
+            </li>
+        </comps>
+    </AbilityDef>
 </Defs>
