@@ -273,7 +273,7 @@
     <GeneDef>
         <defName>EBSA_DeadenNerves</defName>
         <label>deaden nerves</label>
-        <description>Carriers grow have a unique gland in their brain just above the spine that allows them to almost completely ignore pain for a brief time when the pawn chooses to. After the gland finishes excreting its chemicals, it needs a few hours to refill.</description>
+        <description>Carriers of this gene grow have a unique gland in their brain just above the spine that allows them to almost completely ignore pain for a brief time when the pawn chooses to. After the gland finishes excreting its chemicals, it needs a few hours to refill.</description>
         <iconPath>UI/Abilities/Painblock</iconPath>
         <displayCategory>Ability</displayCategory>
         <displayOrderInCategory>200</displayOrderInCategory>
@@ -283,7 +283,7 @@
         <descriptionHyperlinks>
             <AbilityDef>EBSA_DeadenNerves</AbilityDef>
         </descriptionHyperlinks>
-        <biostatMet>-1</biostatMet>
+        <biostatMet>-2</biostatMet>
         <symbolPack>
             <prefixSymbols>
                 <li><symbol>dull</symbol></li>
@@ -294,9 +294,41 @@
     </GeneDef>
 
     <GeneDef>
+        <defName>EBSA_Chameleonlike</defName>
+        <label>chameleonlike</label>
+        <description>Carriers of this gene have a unique inactive pigment in their skin that is normally not visible, but when activate it becomes visible and automatically shifts its colors to reflect the nearby environment, making it nigh-impossible to keep track of the pawn.</description>
+        <iconPath>UI/Abilities/Painblock</iconPath>
+        <displayCategory>Ability</displayCategory>
+        <displayOrderInCategory>201</displayOrderInCategory>
+        <abilities>
+            <li>EBSA_Chameleonlike</li>
+        </abilities>
+        <descriptionHyperlinks>
+            <AbilityDef>EBSA_Chameleonlike</AbilityDef>
+        </descriptionHyperlinks>
+        <biostatMet>-3</biostatMet>
+    </GeneDef>
+
+    <GeneDef>
+        <defName>EBSA_SmokeCloud</defName>
+        <label>smoke cloud</label>
+        <description>Carriers of this gene have small glands around their body that can compress to release a smoke cloud in the area around them.</description>
+        <iconPath>UI/Abilities/Painblock</iconPath>
+        <displayCategory>Ability</displayCategory>
+        <displayOrderInCategory>202</displayOrderInCategory>
+        <abilities>
+            <li>EBSA_SmokeCloud</li>
+        </abilities>
+        <descriptionHyperlinks>
+            <AbilityDef>EBSA_SmokeCloud</AbilityDef>
+        </descriptionHyperlinks>
+        <biostatMet>-1</biostatMet>
+    </GeneDef>
+
+    <GeneDef>
         <defName>EBSA_BerserkNeedle</defName>
-        <label>berserk needle</label>
-        <description>Carriers of this gene have a small clump of poisonous needles hidden in their wrists that the can shoot at a target to drive them into a mindless rampage. It takes the body a couple days to regrow each needle.</description>
+        <label>berserk needles</label>
+        <description>Carriers of this gene have a small clump of poisonous needles hidden in their wrists that the can shoot at a target to drive them into a mindless rampage. It takes the body a couple days to regrow each needle.\n\nAny being with at least 50% toxic resistance will be completely immune to the effects of the needle.</description>
         <iconPath>UI/Abilities/Painblock</iconPath>
         <displayCategory>Ability</displayCategory>
         <displayOrderInCategory>150</displayOrderInCategory>
@@ -312,6 +344,29 @@
                 <li><symbol>berserk</symbol></li>
                 <li><symbol>rage</symbol></li>
                 <li><symbol>wrath</symbol></li>
+            </prefixSymbols>
+        </symbolPack>
+    </GeneDef>
+
+    <GeneDef>
+        <defName>EBSA_DebilitatingNeedle</defName>
+        <label>debilitating needles</label>
+        <description>Carriers of this gene have a small clump of poisonous needles hidden in their wrists that the can shoot at a target to cause their bodies to become sluggish. It takes the body a couple days to regrow each needle.\n\nAny being with at least 50% toxic resistance will be completely immune to the effects of the needle.</description>
+        <iconPath>UI/Abilities/Painblock</iconPath>
+        <displayCategory>Ability</displayCategory>
+        <displayOrderInCategory>151</displayOrderInCategory>
+        <abilities>
+            <li>EBSA_DebilitatingNeedle</li>
+        </abilities>
+        <descriptionHyperlinks>
+            <AbilityDef>EBSA_DebilitatingNeedle</AbilityDef>
+        </descriptionHyperlinks>
+        <biostatMet>-2</biostatMet>
+        <symbolPack>
+            <prefixSymbols>
+                <li><symbol>slug</symbol></li>
+                <li><symbol>daze</symbol></li>
+                <li><symbol>slow</symbol></li>
             </prefixSymbols>
         </symbolPack>
     </GeneDef>

@@ -11,4 +11,38 @@
             </li>
         </stages>
     </HediffDef>
+
+    <HediffDef>
+        <defName>EBSA_DebilitatingNeedle</defName>
+        <label>debilitating needle</label>
+        <description>Slugishness caused by a poison needle.</description>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <postFactor>0.4</postFactor>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>EBSA_Chameleonlike</defName>
+        <label>chameleon</label>
+        <hediffClass>HediffWithComps</hediffClass>
+        <description>This pawn is blending into the environment, making it nigh-impossible to keep track of their location.</description>
+        <isBad>false</isBad>
+        <comps>
+            <li Class="HediffCompProperties_Invisibility">
+                <visibleToPlayer>true</visibleToPlayer>
+            </li>
+            <li Class="HediffCompProperties_Disappears">
+                <showRemainingTime>True</showRemainingTime>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
+    </HediffDef>
+    
 </Defs>

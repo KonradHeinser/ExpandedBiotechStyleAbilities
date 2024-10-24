@@ -285,7 +285,9 @@
         <hostile>False</hostile>
         <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
         <targetRequired>False</targetRequired>
-        <cooldownTicksRange>3000</cooldownTicksRange>
+        <charges>2</charges>
+        <cooldownPerCharge>True</cooldownPerCharge>
+        <cooldownTicksRange>30000</cooldownTicksRange>
         <statBases>
             <Ability_Duration>84</Ability_Duration>
         </statBases>
@@ -304,6 +306,71 @@
             </li>
         </comps>
     </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_Chameleonlike</defName>
+        <label>chameleonlike</label>
+        <description>Activate pigments in the skin that will temporarily make it nigh-impossible to be observed clearly.</description>
+        <iconPath>UI/Abilities/Painblock</iconPath>
+        <charges>2</charges>
+        <cooldownPerCharge>True</cooldownPerCharge>
+        <hotKey>Misc1</hotKey>
+        <hostile>False</hostile>
+        <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
+        <targetRequired>False</targetRequired>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <statBases>
+            <Ability_Duration>15</Ability_Duration>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.25</warmupTime>
+            <range>0.9</range>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>EBSA_Chameleonlike</hediffDef>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_SmokeCloud</defName>
+        <label>smokeCloud</label>
+        <description>Spray smoke from the pores that make it harder to shoot towards the surrounding area.</description>
+        <iconPath>UI/Abilities/Painblock</iconPath>
+        <hotKey>Misc1</hotKey>
+        <hostile>False</hostile>
+        <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
+        <targetRequired>False</targetRequired>
+        <charges>4</charges>
+        <cooldownPerCharge>True</cooldownPerCharge>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <statBases>
+            <Ability_Duration>15</Ability_Duration>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.25</warmupTime>
+            <range>0.9</range>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+                <canTargetLocations>True</canTargetLocations>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilitySmokepop">
+                <smokeRadius>4.9</smokeRadius>
+                <clamorType>Ability</clamorType>
+                <clamorRadius>15</clamorRadius>
+            </li>
+        </comps>
+    </AbilityDef>
+
     
     <AbilityDef Abstract="True" Name="EBSA_Needle">
         <charges>6</charges>
@@ -318,6 +385,16 @@
                 <canTargetMechs>False</canTargetMechs>
             </targetParams>
         </verbProperties>
+        <comps>
+            <li Class="EBSGFramework.CompProperties_AbilityAbilityValidator">
+                <targetStatLimiters>
+                    <li>
+                        <stat>ToxicResistance</stat>
+                        <maxStatValue>0.4999</maxStatValue>
+                    </li>
+                </targetStatLimiters>
+            </li>
+        </comps>
     </AbilityDef>
 
     <AbilityDef ParentName="EBSA_Needle">
@@ -337,4 +414,21 @@
             </li>
         </comps>
     </AbilityDef>
+
+    <AbilityDef ParentName="EBSA_Needle">
+        <defName>EBSA_DebilitatingNeedle</defName>
+        <label>debilitating needle</label>
+        <description>Shoot a small needle from the wrist that causes the target's body to become sluggish.</description>
+        <iconPath>UI/Abilities/Painblock</iconPath>
+        <statBases>
+            <Ability_Duration>21</Ability_Duration>
+        </statBases>
+        <comps>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>EBSA_DebilitatingNeedle</hediffDef>
+            </li>
+        </comps>
+    </AbilityDef>
+
 </Defs>
