@@ -31,8 +31,8 @@
     <HediffDef>
         <defName>EBSA_Chameleonlike</defName>
         <label>chameleon</label>
-        <hediffClass>HediffWithComps</hediffClass>
         <description>This pawn is blending into the environment, making it nigh-impossible to keep track of their location.</description>
+        <hediffClass>HediffWithComps</hediffClass>
         <isBad>false</isBad>
         <comps>
             <li Class="HediffCompProperties_Invisibility">
@@ -44,5 +44,40 @@
             <li Class="HediffCompProperties_DisappearsOnDeath"/>
         </comps>
     </HediffDef>
-    
+
+    <HediffDef>
+        <defName>EBSA_BlindingLuminescence</defName>
+        <label>blinding luminescence</label>
+        <description>Blurred and spotty vision caused by a sudden blinding light.</description>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Sight</capacity>
+                        <postFactor>0.2</postFactor>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <HediffDef>
+        <defName>EBSA_DisorientingScreech</defName>
+        <label>disorienting screech</label>
+        <description>All that can be heard is ringing, and it's hard to walk in a straight line.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <stages>
+            <li>
+                <vomitMtbDays>0.0001</vomitMtbDays>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_Disorientation">
+                <wanderMtbHours>0.05</wanderMtbHours>
+                <singleWanderDurationTicks>180</singleWanderDurationTicks>
+                <wanderRadius>3</wanderRadius>
+            </li>
+        </comps>
+    </HediffDef>
+
 </Defs>

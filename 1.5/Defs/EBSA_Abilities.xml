@@ -237,7 +237,7 @@
                 <angle>45</angle> <!--Angles under 40 tend to start skipping some tiles close to the pawn occassionally-->
             </li>
             <li Class="CompProperties_AbilityHemogenCost">
-                <hemogenCost>0.1</hemogenCost> <!--Slightly higher efficiency than hemogenic converter, which also makes it a bit better than the non-hemo version-->
+                <hemogenCost>0.1</hemogenCost>
             </li>
         </comps>
     </AbilityDef>
@@ -270,6 +270,37 @@
             </li>
             <li Class="CompProperties_AbilityHemogenCost">
                 <hemogenCost>0.8</hemogenCost>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_HemogenRefiner</defName>
+        <label>hemogen refiner</label>
+        <description>Filter and refine some of your own blood to replenish some hemogen. This process is very inefficient.</description>
+        <iconPath>UI/Abilities/Painblock</iconPath>
+        <hotKey>Misc1</hotKey>
+        <hostile>False</hostile>
+        <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
+        <targetRequired>False</targetRequired>
+        <cooldownTicksRange>2500</cooldownTicksRange>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.25</warmupTime>
+            <range>0.9</range>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>BloodLoss</hediffDef>
+                <severity>0.35</severity>
+                <onlyApplyToSelf>True</onlyApplyToSelf>
+            </li>
+            <li Class="CompProperties_AbilityHemogenCost">
+                <hemogenCost>-0.1</hemogenCost>
             </li>
         </comps>
     </AbilityDef>
@@ -309,12 +340,11 @@
 
     <AbilityDef>
         <defName>EBSA_Chameleonlike</defName>
-        <label>chameleonlike</label>
+        <label>chameleon-like</label>
         <description>Activate pigments in the skin that will temporarily make it nigh-impossible to be observed clearly.</description>
         <iconPath>UI/Abilities/Painblock</iconPath>
         <charges>2</charges>
         <cooldownPerCharge>True</cooldownPerCharge>
-        <hotKey>Misc1</hotKey>
         <hostile>False</hostile>
         <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
         <targetRequired>False</targetRequired>
@@ -339,8 +369,71 @@
     </AbilityDef>
 
     <AbilityDef>
+        <defName>EBSA_BlindingLuminescence</defName>
+        <label>blinding luminescence</label>
+        <description>Activate a chemical in the skin that will create a short-lived blinding light.</description>
+        <iconPath>UI/Abilities/Painblock</iconPath>
+        <hostile>False</hostile>
+        <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
+        <targetRequired>False</targetRequired>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <statBases>
+            <Ability_Duration>15</Ability_Duration>
+            <Ability_EffectRadius>5.9</Ability_EffectRadius>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.25</warmupTime>
+            <range>5.9</range>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>EBSA_BlindingLuminescence</hediffDef>
+                <ignoreSelf>True</ignoreSelf>
+            </li>
+            <li Class="CompProperties_AbilityEffecterOnTarget">
+                <effecterDef>EBSA_BlindingLuminescence</effecterDef>
+                <maintainForTicks>120</maintainForTicks>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_DisorientingScreech</defName>
+        <label>disorienting screech</label>
+        <description>Let out an ear piercing screech that disrupts the balance of everyone after messing with their body's basic senses, and in many cases it can cause living beings to vomit vomting.</description>
+        <iconPath>UI/Abilities/Painblock</iconPath>
+        <hostile>False</hostile>
+        <targetRequired>False</targetRequired>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <statBases>
+            <Ability_Duration>10</Ability_Duration>
+            <Ability_EffectRadius>5.9</Ability_EffectRadius>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.25</warmupTime>
+            <range>5.9</range>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>EBSA_DisorientingScreech</hediffDef>
+                <ignoreSelf>True</ignoreSelf>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
         <defName>EBSA_SmokeCloud</defName>
-        <label>smokeCloud</label>
+        <label>smoke cloud</label>
         <description>Spray smoke from the pores that make it harder to shoot towards the surrounding area.</description>
         <iconPath>UI/Abilities/Painblock</iconPath>
         <hotKey>Misc1</hotKey>
@@ -370,7 +463,6 @@
             </li>
         </comps>
     </AbilityDef>
-
     
     <AbilityDef Abstract="True" Name="EBSA_Needle">
         <charges>6</charges>

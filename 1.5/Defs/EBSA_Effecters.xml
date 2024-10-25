@@ -143,4 +143,46 @@
         </graphicData>
     </FleckDef>
     
+    <EffecterDef>
+        <defName>EBSA_BlindingLuminescence</defName>
+        <children>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>GrowingFlash</fleckDef>
+                <burstCount>1~1</burstCount>
+                <scale>1</scale>
+                <spawnLocType>OnSource</spawnLocType>
+            </li>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>EBSA_BlindingLuminescenceFlash</fleckDef>
+                <scale>4</scale>
+                <spawnLocType>OnSource</spawnLocType>
+                <burstCount>1~1</burstCount>
+            </li>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+                <fleckDef>Smoke</fleckDef>
+                <ticksBetweenMotes>30</ticksBetweenMotes>
+                <scale>0.6~1.1</scale>
+                <spawnLocType>OnSource</spawnLocType>
+                <absoluteAngle>true</absoluteAngle>
+                <angle>30~70</angle>
+                <speed>0.2~0.35</speed>
+            </li>
+        </children>
+    </EffecterDef>
+    
+    <FleckDef ParentName="FleckBase">
+        <defName>EBSA_BlindingLuminescenceFlash</defName>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <solidTime>0.2</solidTime>
+        <fadeOutTime>0.3</fadeOutTime>
+        <growthRate>50</growthRate>
+        <graphicData>
+          <texPath>Things/Mote/BrightFlash</texPath>
+          <shaderType>MoteGlow</shaderType>
+        </graphicData>
+    </FleckDef>
+    
 </Defs>

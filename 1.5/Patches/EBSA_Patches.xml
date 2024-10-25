@@ -1,4 +1,51 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/GeneDef[defName="FoamSpray"]/displayOrderInCategory</xpath>
+        <match Class="PatchOperationReplace">
+            <xpath>Defs/GeneDef[defName="FoamSpray"]/displayOrderInCategory</xpath>
+            <value>
+                <displayOrderInCategory>1</displayOrderInCategory>
+            </value>
+        </match>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/GeneDef[defName="FoamSpray"]</xpath>
+            <value>
+                <displayOrderInCategory>1</displayOrderInCategory>
+            </value>
+        </nomatch>
+    </Operation>
+
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/GeneDef[defName="AcidSpray"]/displayOrderInCategory</xpath>
+        <match Class="PatchOperationReplace">
+            <xpath>Defs/GeneDef[defName="AcidSpray"]/displayOrderInCategory</xpath>
+            <value>
+                <displayOrderInCategory>2</displayOrderInCategory>
+            </value>
+        </match>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/GeneDef[defName="AcidSpray"]</xpath>
+            <value>
+                <displayOrderInCategory>2</displayOrderInCategory>
+            </value>
+        </nomatch>
+    </Operation>
+
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/GeneDef[defName="FireSpew"]/displayOrderInCategory</xpath>
+        <match Class="PatchOperationReplace">
+            <xpath>Defs/GeneDef[defName="FireSpew"]/displayOrderInCategory</xpath>
+            <value>
+                <displayOrderInCategory>3</displayOrderInCategory>
+            </value>
+        </match>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/GeneDef[defName="FireSpew"]</xpath>
+            <value>
+                <displayOrderInCategory>3</displayOrderInCategory>
+            </value>
+        </nomatch>
+    </Operation>
 
 </Patch>
