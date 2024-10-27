@@ -176,13 +176,12 @@
     <FleckDef ParentName="FleckBase">
         <defName>EBSA_BlindingLuminescenceFlash</defName>
         <altitudeLayer>MoteOverhead</altitudeLayer>
-        <solidTime>0.2</solidTime>
-        <fadeOutTime>0.3</fadeOutTime>
+        <solidTime>0.3</solidTime>
+        <fadeOutTime>0.5</fadeOutTime>
         <growthRate>50</growthRate>
         <graphicData>
           <texPath>Things/Mote/BrightFlash</texPath>
           <shaderType>MoteGlow</shaderType>
         </graphicData>
     </FleckDef>
-    
 </Defs>

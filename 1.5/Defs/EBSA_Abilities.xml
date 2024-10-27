@@ -35,7 +35,7 @@
         <iconPath>UI/Icons/Genes/Gene_FoamSpray</iconPath>
         <cooldownTicksRange>30000</cooldownTicksRange>
         <charges>2</charges> <!--Has one less charge because it can cover a larger area, with the only downside being that the pawn must be closer-->
-        <aiCanUse>True</aiCanUse>
+        <aiCanUse>False</aiCanUse>
         <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
         <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
         <warmupStartSound>FoamSpray_Warmup</warmupStartSound>
@@ -415,6 +415,8 @@
         <hostile>False</hostile>
         <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
         <targetRequired>False</targetRequired>
+        <aiCanUse>True</aiCanUse>
+        <ai_SearchAOEForTargets>True</ai_SearchAOEForTargets>
         <cooldownTicksRange>30000</cooldownTicksRange>
         <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
         <statBases>
@@ -481,8 +483,9 @@
         <label>disorienting screech</label>
         <description>Let out an ear piercing screech that disrupts the balance of everyone after messing with all of their body's basic senses, and in many cases it can cause living beings to vomit vomting.</description>
         <iconPath>EBSA/Gene_FireSpray</iconPath>
-        <hostile>False</hostile>
         <targetRequired>False</targetRequired>
+        <aiCanUse>True</aiCanUse>
+        <ai_SearchAOEForTargets>True</ai_SearchAOEForTargets>
         <cooldownTicksRange>30000</cooldownTicksRange>
         <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
         <statBases>
@@ -514,7 +517,8 @@
         <label>startling screech</label>
         <description>Let out a sudden ear piercing screech that rattles the brains of everyone nearby, causing them to freeze in place for a bit as they try to recover.</description>
         <iconPath>EBSA/Gene_FireSpray</iconPath>
-        <hostile>False</hostile>
+        <aiCanUse>True</aiCanUse>
+        <ai_SearchAOEForTargets>True</ai_SearchAOEForTargets>
         <targetRequired>False</targetRequired>
         <cooldownTicksRange>60000</cooldownTicksRange>
         <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
@@ -643,6 +647,7 @@
         <description>Shoot a small needle from the wrist that causes the target to feel soothed, ending any mental breaks they may have and increasing their mood for a while. While they may feel calmer, their minds will also be somewhat clouded.</description>
         <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
         <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <aiCanUse>False</aiCanUse>
         <hostile>False</hostile>
         <statBases>
             <Ability_Duration>1000</Ability_Duration>
