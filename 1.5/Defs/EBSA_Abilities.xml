@@ -7,6 +7,7 @@
         <iconPath>EBSA/Gene_FireSpray</iconPath>
         <cooldownTicksRange>30000</cooldownTicksRange>
         <aiCanUse>True</aiCanUse>
+        <ai_IsIncendiary>true</ai_IsIncendiary>
         <displayOrder>300</displayOrder>
         <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
         <warmupStartSound>FireSpew_Warmup</warmupStartSound>
@@ -135,6 +136,7 @@
         <ai_SearchAOEForTargets>True</ai_SearchAOEForTargets>
         <showCastingProgressBar>True</showCastingProgressBar>
         <warmupStartSound>FireSpew_Warmup</warmupStartSound>
+        <ai_IsIncendiary>true</ai_IsIncendiary>
         <aiCanUse>True</aiCanUse>
         <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
         <cooldownTicksRange>30000</cooldownTicksRange>
