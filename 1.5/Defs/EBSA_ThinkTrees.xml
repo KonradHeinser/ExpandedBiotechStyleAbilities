@@ -1,4 +1,30 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
+    <ThinkTreeDef>
+        <defName>EBSGA_NonColonistReactToMelee</defName>
+        <insertTag>EBSGAI_NonColonist_MeleeThreat</insertTag>
+        <insertPriority>100</insertPriority>
+        <thinkRoot Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="ThinkNode_ConditionalHasAbility">
+                    <ability>EBSA_Pounce</ability>
+                    <subNodes>
+                        <li Class="ThinkNode_ConditionalTotalDamage">
+                            <thresholdPercent>0.5</thresholdPercent>
+                            <subNodes>
+                                <li Class="ThinkNode_HarmedRecently">
+                                    <thresholdTicks>120</thresholdTicks>
+                                    <subNodes>
+                                        <li Class="JobGiver_AIJumpEscapeEnemies">
+                                            <ability>EBSA_Pounce</ability>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                            </subNodes>
+                          </li>
+                    </subNodes>
+                </li>
+            </subNodes>
+        </thinkRoot>
+    </ThinkTreeDef>
 </Defs>
