@@ -55,7 +55,7 @@
                 <damage>Extinguish</damage>
                 <filthDef>Filth_FireFoam</filthDef>
                 <effecterDef>EBSA_Foam_Spew</effecterDef>
-                <angle>45</angle> <!--Angles under 40 tend to start skipping some tiles close to the pawn occassionally-->
+                <angle>45</angle> <!--Angles under 40 tend to start skipping some tiles close to the pawn occasionally-->
             </li>
         </comps>
     </AbilityDef>
@@ -85,7 +85,7 @@
                 <filthDef>Filth_SpentAcid</filthDef>
                 <amount>25</amount>
                 <effecterDef>EBSA_AcidSpew</effecterDef>
-                <angle>45</angle> <!--Angles under 40 tend to start skipping some tiles close to the pawn occassionally-->
+                <angle>45</angle> <!--Angles under 40 tend to start skipping some tiles close to the pawn occasionally-->
             </li>
         </comps>
     </AbilityDef>
@@ -115,7 +115,7 @@
                 <filthDef>EBSA_BloodSpew</filthDef>
                 <amount>30</amount>
                 <effecterDef>EBSA_BloodSpew</effecterDef>
-                <angle>45</angle> <!--Angles under 40 tend to start skipping some tiles close to the pawn occassionally-->
+                <angle>45</angle> <!--Angles under 40 tend to start skipping some tiles close to the pawn occasionally-->
             </li>
             <li Class="CompProperties_AbilityGiveHediff">
                 <compClass>CompAbilityEffect_GiveHediff</compClass>
@@ -236,7 +236,7 @@
                 <filthDef>EBSA_BloodSpew</filthDef>
                 <amount>30</amount>
                 <effecterDef>EBSA_BloodSpew</effecterDef>
-                <angle>45</angle> <!--Angles under 40 tend to start skipping some tiles close to the pawn occassionally-->
+                <angle>45</angle> <!--Angles under 40 tend to start skipping some tiles close to the pawn occasionally-->
             </li>
             <li Class="CompProperties_AbilityHemogenCost">
                 <hemogenCost>0.1</hemogenCost>
