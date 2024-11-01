@@ -284,6 +284,7 @@
         <hotKey>Misc1</hotKey>
         <hostile>False</hostile>
         <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
+        <aiCanUse>False</aiCanUse>
         <targetRequired>False</targetRequired>
         <cooldownTicksRange>2500</cooldownTicksRange>
         <verbProperties>
