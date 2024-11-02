@@ -14,32 +14,30 @@
                         <li Class="ThinkNode_ConditionalHasAbility">
                             <ability>EBSA_BerserkNeedle</ability> <!--Forces a nearby target to go berserk-->
                             <subNodes>
-                                <li Class="ThinkNode_ConditionalValidTargetForAbility">
+                                <li Class="EBSGFramework.ThinkNode_ConditionalValidTargetForAbility">
                                     <ability>EBSA_BerserkNeedle</ability>
-                                    <subnodes>
+                                    <subNodes>
                                         <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
                                             <abilities>
                                                 <li>EBSA_BerserkNeedle</li>
                                             </abilities>
-                                            <maxBodySize>99</maxBodySize>
                                         </li>
-                                    </subnodes>
+                                    </subNodes>
                                 </li>
                             </subNodes>
                         </li>
                         <li Class="ThinkNode_ConditionalHasAbility">
                             <ability>EBSA_DebilitatingNeedle</ability> <!--Forces a nearby target to go berserk-->
                             <subNodes>
-                                <li Class="ThinkNode_ConditionalValidTargetForAbility">
+                                <li Class="EBSGFramework.ThinkNode_ConditionalValidTargetForAbility">
                                     <ability>EBSA_DebilitatingNeedle</ability>
-                                    <subnodes>
+                                    <subNodes>
                                         <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
                                             <abilities>
                                                 <li>EBSA_DebilitatingNeedle</li>
                                             </abilities>
-                                            <maxBodySize>99</maxBodySize>
                                         </li>
-                                    </subnodes>
+                                    </subNodes>
                                 </li>
                             </subNodes>
                         </li>
@@ -61,11 +59,11 @@
                         <li Class="ThinkNode_ConditionalAbilityCastLastTick">
                             <ability>EBSA_SmokeCloud</ability>
                             <minTicksAgo>1200</minTicksAgo>
-                            <subnodes>
+                            <subNodes>
                                 <li Class="JobGiver_AICastAbilityOnSelf">
                                     <ability>EBSA_SmokeCloud</ability>
                                 </li>
-                            </subnodes>
+                            </subNodes>
                         </li>
                     </subNodes>
                 </li>
@@ -81,7 +79,7 @@
             <subNodes>
                 <li Class="ThinkNode_ConditionalHashIntervalTick"> <!--Sets up an interval to avoid quick succession casts, and to avoid casting as soon as a single enemy is in range-->
                     <interval>20</interval>
-                    <subnodes>
+                    <subNodes>
                         <li Class="ThinkNode_ConditionalHasAbility">
                             <ability>EBSA_StartlingScreech</ability> <!--Stun opponents when they're too close to escape-->
                             <subNodes>
@@ -106,7 +104,7 @@
                                 </li>
                             </subNodes>
                         </li>
-                    </subnodes>
+                    </subNodes>
                 </li>
                 <li Class="ThinkNode_ConditionalHasAbility"> <!--Escape if health is low and damage was taken recently-->
                     <ability>EBSA_Pounce</ability>
@@ -184,11 +182,12 @@
                                     <subNodes>
                                         <li Class="ThinkNode_ConditionalHasHediff">
                                             <hediff>BloodLoss</hediff>
-                                            <subnodes>
+                                            <invert>True</invert>
+                                            <subNodes>
                                                 <li Class="JobGiver_AICastAbilityOnSelf">
                                                     <ability>EBSA_HemogenRefiner</ability>
                                                 </li>
-                                            </subnodes>
+                                            </subNodes>
                                         </li>
                                     </subNodes>
                                 </li>
@@ -240,7 +239,6 @@
                                             <abilities>
                                                 <li>EBSA_FireSpray</li>
                                             </abilities>
-                                            <maxBodySize>99</maxBodySize>
                                         </li>
                                     </subNodes>
                                 </li>
@@ -257,7 +255,6 @@
                                             <abilities>
                                                 <li>EBSA_AcidSpew</li>
                                             </abilities>
-                                            <maxBodySize>99</maxBodySize>
                                         </li>
                                     </subNodes>
                                 </li>
@@ -274,7 +271,6 @@
                                             <abilities>
                                                 <li>EBSA_BloodSpew</li>
                                             </abilities>
-                                            <maxBodySize>99</maxBodySize>
                                         </li>
                                     </subNodes>
                                 </li>
@@ -288,7 +284,6 @@
                                                     <abilities>
                                                         <li>EBSA_BloodSpew_Hemogen</li>
                                                     </abilities>
-                                                    <maxBodySize>99</maxBodySize>
                                                 </li>
                                             </subNodes>
                                         </li>
@@ -309,16 +304,15 @@
                                 <li Class="ThinkNode_ConditionalHasAbility">
                                     <ability>EBSA_BerserkNeedle</ability> <!--Forces a nearby target to go berserk-->
                                     <subNodes>
-                                        <li Class="ThinkNode_ConditionalValidTargetForAbility">
+                                        <li Class="EBSGFramework.ThinkNode_ConditionalValidTargetForAbility">
                                             <ability>EBSA_BerserkNeedle</ability>
-                                            <subnodes>
+                                            <subNodes>
                                                 <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
                                                     <abilities>
                                                         <li>EBSA_BerserkNeedle</li>
                                                     </abilities>
-                                                    <maxBodySize>99</maxBodySize>
                                                 </li>
-                                            </subnodes>
+                                            </subNodes>
                                         </li>
                                     </subNodes>
                                 </li>
@@ -331,16 +325,15 @@
                                 <li Class="ThinkNode_ConditionalHasAbility">
                                     <ability>EBSA_DebilitatingNeedle</ability> <!--Forces a nearby target to go berserk-->
                                     <subNodes>
-                                        <li Class="ThinkNode_ConditionalValidTargetForAbility">
+                                        <li Class="EBSGFramework.ThinkNode_ConditionalValidTargetForAbility">
                                             <ability>EBSA_DebilitatingNeedle</ability>
-                                            <subnodes>
+                                            <subNodes>
                                                 <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
                                                     <abilities>
                                                         <li>EBSA_DebilitatingNeedle</li>
                                                     </abilities>
-                                                    <maxBodySize>99</maxBodySize>
                                                 </li>
-                                            </subnodes>
+                                            </subNodes>
                                         </li>
                                     </subNodes>
                                 </li>
@@ -368,11 +361,11 @@
                                 <li Class="ThinkNode_ConditionalAbilityCastLastTick">
                                     <ability>EBSA_SmokeCloud</ability>
                                     <minTicksAgo>1200</minTicksAgo>
-                                    <subnodes>
+                                    <subNodes>
                                         <li Class="JobGiver_AICastAbilityOnSelf">
                                             <ability>EBSA_SmokeCloud</ability>
                                         </li>
-                                    </subnodes>
+                                    </subNodes>
                                 </li>
                             </subNodes>
                         </li>
@@ -390,7 +383,7 @@
             <subNodes>
                 <li Class="ThinkNode_ConditionalHashIntervalTick"> <!--Sets up an interval to avoid quick succession casts, and to avoid casting as soon as a single enemy is in range-->
                     <interval>20</interval>
-                    <subnodes>
+                    <subNodes>
                         <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
                             <uniqueID>EBS_Abilities</uniqueID>
                             <settingID>StartlingScreech</settingID>
@@ -433,7 +426,7 @@
                                 </li>
                             </subNodes>
                         </li>
-                    </subnodes>
+                    </subNodes>
                 </li>
                 <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
                     <uniqueID>EBS_Abilities</uniqueID>
@@ -548,7 +541,6 @@
                                             <abilities>
                                                 <li>EBSA_FireSpray</li>
                                             </abilities>
-                                            <maxBodySize>99</maxBodySize>
                                         </li>
                                     </subNodes>
                                 </li>
@@ -565,7 +557,6 @@
                                             <abilities>
                                                 <li>EBSA_AcidSpew</li>
                                             </abilities>
-                                            <maxBodySize>99</maxBodySize>
                                         </li>
                                     </subNodes>
                                 </li>
@@ -582,7 +573,6 @@
                                             <abilities>
                                                 <li>EBSA_BloodSpew</li>
                                             </abilities>
-                                            <maxBodySize>99</maxBodySize>
                                         </li>
                                     </subNodes>
                                 </li>
@@ -596,7 +586,6 @@
                                                     <abilities>
                                                         <li>EBSA_BloodSpew_Hemogen</li>
                                                     </abilities>
-                                                    <maxBodySize>99</maxBodySize>
                                                 </li>
                                             </subNodes>
                                         </li>
@@ -617,16 +606,15 @@
                                 <li Class="ThinkNode_ConditionalHasAbility">
                                     <ability>EBSA_BerserkNeedle</ability> <!--Forces a nearby target to go berserk-->
                                     <subNodes>
-                                        <li Class="ThinkNode_ConditionalValidTargetForAbility">
+                                        <li Class="EBSGFramework.ThinkNode_ConditionalValidTargetForAbility">
                                             <ability>EBSA_BerserkNeedle</ability>
-                                            <subnodes>
+                                            <subNodes>
                                                 <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
                                                     <abilities>
                                                         <li>EBSA_BerserkNeedle</li>
                                                     </abilities>
-                                                    <maxBodySize>99</maxBodySize>
                                                 </li>
-                                            </subnodes>
+                                            </subNodes>
                                         </li>
                                     </subNodes>
                                 </li>
@@ -639,16 +627,15 @@
                                 <li Class="ThinkNode_ConditionalHasAbility">
                                     <ability>EBSA_DebilitatingNeedle</ability> <!--Forces a nearby target to go berserk-->
                                     <subNodes>
-                                        <li Class="ThinkNode_ConditionalValidTargetForAbility">
+                                        <li Class="EBSGFramework.ThinkNode_ConditionalValidTargetForAbility">
                                             <ability>EBSA_DebilitatingNeedle</ability>
-                                            <subnodes>
+                                            <subNodes>
                                                 <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
                                                     <abilities>
                                                         <li>EBSA_DebilitatingNeedle</li>
                                                     </abilities>
-                                                    <maxBodySize>99</maxBodySize>
                                                 </li>
-                                            </subnodes>
+                                            </subNodes>
                                         </li>
                                     </subNodes>
                                 </li>
@@ -676,11 +663,11 @@
                                 <li Class="ThinkNode_ConditionalAbilityCastLastTick">
                                     <ability>EBSA_SmokeCloud</ability>
                                     <minTicksAgo>1200</minTicksAgo>
-                                    <subnodes>
+                                    <subNodes>
                                         <li Class="JobGiver_AICastAbilityOnSelf">
                                             <ability>EBSA_SmokeCloud</ability>
                                         </li>
-                                    </subnodes>
+                                    </subNodes>
                                 </li>
                             </subNodes>
                         </li>
@@ -698,7 +685,7 @@
             <subNodes>
                 <li Class="ThinkNode_ConditionalHashIntervalTick"> <!--Sets up an interval to avoid quick succession casts, and to avoid casting as soon as a single enemy is in range-->
                     <interval>20</interval>
-                    <subnodes>
+                    <subNodes>
                         <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
                             <uniqueID>EBS_Abilities</uniqueID>
                             <settingID>StartlingScreech</settingID>
@@ -741,7 +728,7 @@
                                 </li>
                             </subNodes>
                         </li>
-                    </subnodes>
+                    </subNodes>
                 </li>
                 <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
                     <uniqueID>EBS_Abilities</uniqueID>
