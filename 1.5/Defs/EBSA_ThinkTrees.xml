@@ -1,64 +1,45 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
     <!--Non-colonist trees-->
+
     <ThinkTreeDef>
-        <defName>EBSGA_NonColonistHasNearbyEnemy</defName>
+        <defName>EBSGA_NonColonist_NearbyEnemy</defName>
         <insertTag>EBSGAI_NonColonist_NearbyEnemy</insertTag>
         <insertPriority>100</insertPriority>
         <thinkRoot Class="ThinkNode_Priority">
             <subNodes>
                 <li Class="ThinkNode_ConditionalHashIntervalTick"> <!--Sets up an interval to avoid quick succession casts, and to avoid casting things on the same pawn too often-->
-                    <interval>25</interval> <!--Anything with 60 as a multiple would cause potential overuse-->
-                    <li Class="ThinkNode_ConditionalHasAbility">
-                        <ability>EBSA_BerserkNeedle</ability> <!--Forces a nearby target to go berserk-->
-                        <subNodes>
-                            <li Class="ThinkNode_ConditionalValidTargetForAbility">
-                                <ability>EBSA_BerserkNeedle</ability>
-                                <subnodes>
-                                    <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
-                                        <abilities>
-                                            <li>EBSA_BerserkNeedle</li>
-                                        </abilities>
-                                        <maxBodySize>99</maxBodySize>
-                                    </li>
-                                </subnodes>
-                            </li>
-                        </subNodes>
-                    </li>
-                    <li Class="ThinkNode_ConditionalHasAbility">
-                        <ability>EBSA_DebilitatingNeedle</ability> <!--Forces a nearby target to go berserk-->
-                        <subNodes>
-                            <li Class="ThinkNode_ConditionalValidTargetForAbility">
-                                <ability>EBSA_DebilitatingNeedle</ability>
-                                <subnodes>
-                                    <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
-                                        <abilities>
-                                            <li>EBSA_DebilitatingNeedle</li>
-                                        </abilities>
-                                        <maxBodySize>99</maxBodySize>
-                                    </li>
-                                </subnodes>
-                            </li>
-                        </subNodes>
-                    </li>
+                    <interval>25</interval> <!--Anything with 20 as a multiple would cause potential overuse-->
                     <subNodes>
-                        <li Class="EBSGFramework.ThinkNode_ConditionalUsingRangedWeapon"> <!--Ensures this is a pawn with a melee attack-->
-                            <invert>True</invert>
+                        <li Class="ThinkNode_ConditionalHasAbility">
+                            <ability>EBSA_BerserkNeedle</ability> <!--Forces a nearby target to go berserk-->
                             <subNodes>
-                                <li Class="ThinkNode_ConditionalHasAbility">
-                                    <ability>EBSA_SirenCall</ability> <!--Forces a nearby target to approach the pawn as long as they are not larger than a standard human. Larger targets may be too strong-->
-                                    <subNodes>
-                                        <li Class="ThinkNode_ConditionalValidTargetForAbility">
-                                            <ability>EBSA_SirenCall</ability>
-                                            <subnodes>
-                                                <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
-                                                    <abilities>
-                                                        <li>EBSA_SirenCall</li>
-                                                    </abilities>
-                                                </li>
-                                            </subnodes>
+                                <li Class="ThinkNode_ConditionalValidTargetForAbility">
+                                    <ability>EBSA_BerserkNeedle</ability>
+                                    <subnodes>
+                                        <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
+                                            <abilities>
+                                                <li>EBSA_BerserkNeedle</li>
+                                            </abilities>
+                                            <maxBodySize>99</maxBodySize>
                                         </li>
-                                    </subNodes>
+                                    </subnodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                        <li Class="ThinkNode_ConditionalHasAbility">
+                            <ability>EBSA_DebilitatingNeedle</ability> <!--Forces a nearby target to go berserk-->
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalValidTargetForAbility">
+                                    <ability>EBSA_DebilitatingNeedle</ability>
+                                    <subnodes>
+                                        <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
+                                            <abilities>
+                                                <li>EBSA_DebilitatingNeedle</li>
+                                            </abilities>
+                                            <maxBodySize>99</maxBodySize>
+                                        </li>
+                                    </subnodes>
                                 </li>
                             </subNodes>
                         </li>
@@ -69,7 +50,7 @@
     </ThinkTreeDef>
 
     <ThinkTreeDef>
-        <defName>EBSGA_NonColonistReactToShot</defName>
+        <defName>EBSGA_NonColonist_ReactToShot</defName>
         <insertTag>EBSGAI_NonColonist_ShotRecently</insertTag>
         <insertPriority>100</insertPriority>
         <thinkRoot Class="ThinkNode_Priority">
@@ -93,13 +74,13 @@
     </ThinkTreeDef>
 
     <ThinkTreeDef>
-        <defName>EBSGA_NonColonistReactToMelee</defName>
+        <defName>EBSGA_NonColonist_ReactToMelee</defName>
         <insertTag>EBSGAI_NonColonist_MeleeThreat</insertTag>
         <insertPriority>100</insertPriority>
         <thinkRoot Class="ThinkNode_Priority">
             <subNodes>
                 <li Class="ThinkNode_ConditionalHashIntervalTick"> <!--Sets up an interval to avoid quick succession casts, and to avoid casting as soon as a single enemy is in range-->
-                    <interval>60</interval>
+                    <interval>20</interval>
                     <subnodes>
                         <li Class="ThinkNode_ConditionalHasAbility">
                             <ability>EBSA_StartlingScreech</ability> <!--Stun opponents when they're too close to escape-->
@@ -150,12 +131,12 @@
     </ThinkTreeDef>
         
     <ThinkTreeDef>
-        <defName>EBSGA_NonColonistReactToInjury</defName>
+        <defName>EBSGA_NonColonist_ReactToInjury</defName>
         <insertTag>EBSGAI_NonColonist_HarmedRecently</insertTag>
         <insertPriority>100</insertPriority>
         <thinkRoot Class="ThinkNode_Priority">
             <subNodes>
-                <li Class="ThinkNode_ConditionalHasAbility"> <!--Turn invisible if damage recently to buy time for other stuff-->
+                <li Class="ThinkNode_ConditionalHasAbility"> <!--Turn invisible if damaged recently to buy time for other stuff-->
                     <ability>EBSA_Chameleonlike</ability>
                     <subNodes>
                         <li Class="JobGiver_AICastAbilityOnSelf">
@@ -180,4 +161,656 @@
         </thinkRoot>
     </ThinkTreeDef>
     
+    <!--Undrafted colonists-->
+
+    <ThinkTreeDef>
+        <defName>EBSGA_UndraftedColonist_NoEnemies</defName>
+        <insertTag>EBSGAI_UndraftedColonist_NoEnemyOnMap</insertTag>
+        <insertPriority>100</insertPriority>
+        <thinkRoot Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                    <uniqueID>EBS_Abilities</uniqueID>
+                    <settingID>HemogenRefiner</settingID>
+                    <subNodes>
+                        <li Class="ThinkNode_ConditionalHasAbility">
+                            <ability>EBSA_HemogenRefiner</ability> <!--Regain some hemogen if below the threshold and devoid of bloodloss-->
+                            <subNodes>
+                                <li Class="EBSGFramework.ThinkNode_ConditionalHighResourceLevels">
+                                    <gene>Hemogenic</gene>
+                                    <invert>True</invert>
+                                    <useTargetValue>False</useTargetValue>
+                                    <minLevel>0.2</minLevel>
+                                    <subNodes>
+                                        <li Class="ThinkNode_ConditionalHasHediff">
+                                            <hediff>BloodLoss</hediff>
+                                            <subnodes>
+                                                <li Class="JobGiver_AICastAbilityOnSelf">
+                                                    <ability>EBSA_HemogenRefiner</ability>
+                                                </li>
+                                            </subnodes>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                    </subNodes>
+                </li>
+            </subNodes>
+        </thinkRoot>
+    </ThinkTreeDef>
+
+    <ThinkTreeDef>
+        <defName>EBSGA_UndraftedColonist_NearbyEnemy</defName>
+        <insertTag>EBSGAI_UndraftedColonist_NearbyEnemy</insertTag>
+        <insertPriority>100</insertPriority>
+        <thinkRoot Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                    <dangerRadius>5</dangerRadius>
+                    <minCount>3</minCount>
+                    <subNodes>
+                        <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                            <uniqueID>EBS_Abilities</uniqueID>
+                            <settingID>Chemburst</settingID>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalHasAbility">
+                                    <ability>EBSA_Chemburst</ability> <!--Attacks a nearby target-->
+                                    <subNodes>
+                                        <li Class="JobGiver_AICastAbilityOnSelf">
+                                            <ability>EBSA_Chemburst</ability>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                    </subNodes>
+                </li>
+                <li Class="EBSGFramework.ThinkNode_ConditionalNearbyEnemyTarget">
+                    <searchRadius>7</searchRadius>
+                    <subNodes>
+                        <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                            <uniqueID>EBS_Abilities</uniqueID>
+                            <settingID>FireSpray</settingID>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalHasAbility">
+                                    <ability>EBSA_FireSpray</ability> <!--Attacks a nearby target-->
+                                    <subNodes>
+                                        <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
+                                            <abilities>
+                                                <li>EBSA_FireSpray</li>
+                                            </abilities>
+                                            <maxBodySize>99</maxBodySize>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                        <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                            <uniqueID>EBS_Abilities</uniqueID>
+                            <settingID>AcidSpew</settingID>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalHasAbility">
+                                    <ability>EBSA_AcidSpew</ability> <!--Attacks a nearby target-->
+                                    <subNodes>
+                                        <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
+                                            <abilities>
+                                                <li>EBSA_AcidSpew</li>
+                                            </abilities>
+                                            <maxBodySize>99</maxBodySize>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                        <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                            <uniqueID>EBS_Abilities</uniqueID>
+                            <settingID>BloodSpew</settingID>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalHasAbility">
+                                    <ability>EBSA_BloodSpew</ability> <!--Attacks a nearby target-->
+                                    <subNodes>
+                                        <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
+                                            <abilities>
+                                                <li>EBSA_BloodSpew</li>
+                                            </abilities>
+                                            <maxBodySize>99</maxBodySize>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                                <li Class="EBSGFramework.ThinkNode_ConditionalHighResourceLevels">
+                                    <gene>Hemogenic</gene>
+                                    <subNodes>
+                                        <li Class="ThinkNode_ConditionalHasAbility">
+                                            <ability>EBSA_BloodSpew_Hemogen</ability> <!--Attacks a nearby target-->
+                                            <subNodes>
+                                                <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
+                                                    <abilities>
+                                                        <li>EBSA_BloodSpew_Hemogen</li>
+                                                    </abilities>
+                                                    <maxBodySize>99</maxBodySize>
+                                                </li>
+                                            </subNodes>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                                
+                            </subNodes>
+                        </li>
+                    </subNodes>
+                </li>
+                <li Class="ThinkNode_ConditionalHashIntervalTick"> <!--Sets up an interval to avoid quick succession casts, and to avoid casting things on the same pawn too often-->
+                    <interval>25</interval> <!--Anything with 20 as a multiple would cause potential overuse-->
+                    <subNodes>
+                        <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                            <uniqueID>EBS_Abilities</uniqueID>
+                            <settingID>BerserkNeedle</settingID>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalHasAbility">
+                                    <ability>EBSA_BerserkNeedle</ability> <!--Forces a nearby target to go berserk-->
+                                    <subNodes>
+                                        <li Class="ThinkNode_ConditionalValidTargetForAbility">
+                                            <ability>EBSA_BerserkNeedle</ability>
+                                            <subnodes>
+                                                <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
+                                                    <abilities>
+                                                        <li>EBSA_BerserkNeedle</li>
+                                                    </abilities>
+                                                    <maxBodySize>99</maxBodySize>
+                                                </li>
+                                            </subnodes>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                        <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                            <uniqueID>EBS_Abilities</uniqueID>
+                            <settingID>DebilitatingNeedle</settingID>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalHasAbility">
+                                    <ability>EBSA_DebilitatingNeedle</ability> <!--Forces a nearby target to go berserk-->
+                                    <subNodes>
+                                        <li Class="ThinkNode_ConditionalValidTargetForAbility">
+                                            <ability>EBSA_DebilitatingNeedle</ability>
+                                            <subnodes>
+                                                <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
+                                                    <abilities>
+                                                        <li>EBSA_DebilitatingNeedle</li>
+                                                    </abilities>
+                                                    <maxBodySize>99</maxBodySize>
+                                                </li>
+                                            </subnodes>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                    </subNodes>
+                </li>
+            </subNodes>
+        </thinkRoot>
+    </ThinkTreeDef>
+
+    <ThinkTreeDef>
+        <defName>EBSGA_UndraftedColonist_ReactToShot</defName>
+        <insertTag>EBSGAI_UndraftedColonist_ShotRecently</insertTag>
+        <insertPriority>100</insertPriority>
+        <thinkRoot Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                    <uniqueID>EBS_Abilities</uniqueID>
+                    <settingID>SmokeCloud</settingID>
+                    <subNodes>
+                        <li Class="ThinkNode_ConditionalHasAbility">
+                            <ability>EBSA_SmokeCloud</ability> <!--Creates a smoke cloud if the pawn has been shot in the past half hour-->
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalAbilityCastLastTick">
+                                    <ability>EBSA_SmokeCloud</ability>
+                                    <minTicksAgo>1200</minTicksAgo>
+                                    <subnodes>
+                                        <li Class="JobGiver_AICastAbilityOnSelf">
+                                            <ability>EBSA_SmokeCloud</ability>
+                                        </li>
+                                    </subnodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                    </subNodes>
+                </li>
+            </subNodes>
+        </thinkRoot>
+    </ThinkTreeDef>
+
+    <ThinkTreeDef>
+        <defName>EBSGA_UndraftedColonist_ReactToMelee</defName>
+        <insertTag>EBSGAI_UndraftedColonist_MeleeThreat</insertTag>
+        <insertPriority>100</insertPriority>
+        <thinkRoot Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="ThinkNode_ConditionalHashIntervalTick"> <!--Sets up an interval to avoid quick succession casts, and to avoid casting as soon as a single enemy is in range-->
+                    <interval>20</interval>
+                    <subnodes>
+                        <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                            <uniqueID>EBS_Abilities</uniqueID>
+                            <settingID>StartlingScreech</settingID>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalHasAbility">
+                                    <ability>EBSA_StartlingScreech</ability> <!--Stun opponents when they're too close to escape-->
+                                    <subNodes>
+                                        <li Class="JobGiver_AICastAbilityOnSelf">
+                                            <ability>EBSA_StartlingScreech</ability>
+                                        </li>
+                                    </subNodes>
+                                </li>        
+                            </subNodes>
+                        </li>
+                        <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                            <uniqueID>EBS_Abilities</uniqueID>
+                            <settingID>BlindingLuminescence</settingID>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalHasAbility">
+                                    <ability>EBSA_BlindingLuminescence</ability> <!--Blind opponents when they're too close to escape-->
+                                    <subNodes>
+                                        <li Class="JobGiver_AICastAbilityOnSelf">
+                                            <ability>EBSA_BlindingLuminescence</ability>
+                                        </li>
+                                    </subNodes>
+                                </li>        
+                            </subNodes>
+                        </li>
+                        <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                            <uniqueID>EBS_Abilities</uniqueID>
+                            <settingID>DisorientingScreech</settingID>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalHasAbility">
+                                    <ability>EBSA_DisorientingScreech</ability> <!--Disorient opponents when they're too close to escape-->
+                                    <subNodes>
+                                        <li Class="JobGiver_AICastAbilityOnSelf">
+                                            <ability>EBSA_DisorientingScreech</ability>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                    </subnodes>
+                </li>
+                <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                    <uniqueID>EBS_Abilities</uniqueID>
+                    <settingID>Pounce</settingID>
+                    <subNodes>
+                        <li Class="ThinkNode_ConditionalHasAbility"> <!--Escape if health is low and damage was taken recently-->
+                            <ability>EBSA_Pounce</ability>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalTotalDamage">
+                                    <thresholdPercent>0.5</thresholdPercent>
+                                    <subNodes>
+                                        <li Class="ThinkNode_HarmedRecently">
+                                            <thresholdTicks>120</thresholdTicks>
+                                            <subNodes>
+                                                <li Class="JobGiver_AIJumpEscapeEnemies">
+                                                    <ability>EBSA_Pounce</ability>
+                                                </li>
+                                            </subNodes>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                    </subNodes>
+                </li>
+            </subNodes>
+        </thinkRoot>
+    </ThinkTreeDef>
+        
+    <ThinkTreeDef>
+        <defName>EBSGA_UndraftedColonist_ReactToInjury</defName>
+        <insertTag>EBSGAI_UndraftedColonist_HarmedRecently</insertTag>
+        <insertPriority>100</insertPriority>
+        <thinkRoot Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                    <uniqueID>EBS_Abilities</uniqueID>
+                    <settingID>ChameleonLike</settingID>
+                    <subNodes>
+                        <li Class="ThinkNode_ConditionalHasAbility"> <!--Turn invisible if damaged recently to buy time for other stuff-->
+                            <ability>EBSA_Chameleonlike</ability>
+                            <subNodes>
+                                <li Class="JobGiver_AICastAbilityOnSelf">
+                                    <ability>EBSA_Chameleonlike</ability>
+                                </li>
+                            </subNodes>
+                        </li>        
+                    </subNodes>
+                </li>
+                <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                    <uniqueID>EBS_Abilities</uniqueID>
+                    <settingID>DeadenNerves</settingID>
+                    <subNodes>
+                        <li Class="ThinkNode_ConditionalHasAbility"> <!--If notable damage has been taken, stop the pain-->
+                            <ability>EBSA_DeadenNerves</ability>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalTotalDamage">
+                                    <thresholdPercent>0.25</thresholdPercent> 
+                                    <subNodes>
+                                        <li Class="JobGiver_AICastAbilityOnSelf">
+                                            <ability>EBSA_DeadenNerves</ability>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                    </subNodes>
+                </li>
+            </subNodes>
+        </thinkRoot>
+    </ThinkTreeDef>
+
+    <!--Drafted colonists-->
+
+    <ThinkTreeDef>
+        <defName>EBSGA_DraftedColonist_NearbyEnemy</defName>
+        <insertTag>EBSGAI_DraftedColonist_NearbyEnemy</insertTag>
+        <insertPriority>100</insertPriority>
+        <thinkRoot Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="EBSGFramework.ThinkNode_ConditionalTooManyNearbyThreats">
+                    <dangerRadius>5</dangerRadius>
+                    <minCount>3</minCount>
+                    <subNodes>
+                        <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                            <uniqueID>EBS_Abilities</uniqueID>
+                            <settingID>Chemburst</settingID>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalHasAbility">
+                                    <ability>EBSA_Chemburst</ability> <!--Attacks a nearby target-->
+                                    <subNodes>
+                                        <li Class="JobGiver_AICastAbilityOnSelf">
+                                            <ability>EBSA_Chemburst</ability>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                    </subNodes>
+                </li>
+                <li Class="EBSGFramework.ThinkNode_ConditionalNearbyEnemyTarget">
+                    <searchRadius>7</searchRadius>
+                    <subNodes>
+                        <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                            <uniqueID>EBS_Abilities</uniqueID>
+                            <settingID>FireSpray</settingID>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalHasAbility">
+                                    <ability>EBSA_FireSpray</ability> <!--Attacks a nearby target-->
+                                    <subNodes>
+                                        <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
+                                            <abilities>
+                                                <li>EBSA_FireSpray</li>
+                                            </abilities>
+                                            <maxBodySize>99</maxBodySize>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                        <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                            <uniqueID>EBS_Abilities</uniqueID>
+                            <settingID>AcidSpew</settingID>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalHasAbility">
+                                    <ability>EBSA_AcidSpew</ability> <!--Attacks a nearby target-->
+                                    <subNodes>
+                                        <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
+                                            <abilities>
+                                                <li>EBSA_AcidSpew</li>
+                                            </abilities>
+                                            <maxBodySize>99</maxBodySize>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                        <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                            <uniqueID>EBS_Abilities</uniqueID>
+                            <settingID>BloodSpew</settingID>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalHasAbility">
+                                    <ability>EBSA_BloodSpew</ability> <!--Attacks a nearby target-->
+                                    <subNodes>
+                                        <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
+                                            <abilities>
+                                                <li>EBSA_BloodSpew</li>
+                                            </abilities>
+                                            <maxBodySize>99</maxBodySize>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                                <li Class="EBSGFramework.ThinkNode_ConditionalHighResourceLevels">
+                                    <gene>Hemogenic</gene>
+                                    <subNodes>
+                                        <li Class="ThinkNode_ConditionalHasAbility">
+                                            <ability>EBSA_BloodSpew_Hemogen</ability> <!--Attacks a nearby target-->
+                                            <subNodes>
+                                                <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
+                                                    <abilities>
+                                                        <li>EBSA_BloodSpew_Hemogen</li>
+                                                    </abilities>
+                                                    <maxBodySize>99</maxBodySize>
+                                                </li>
+                                            </subNodes>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                                
+                            </subNodes>
+                        </li>
+                    </subNodes>
+                </li>
+                <li Class="ThinkNode_ConditionalHashIntervalTick"> <!--Sets up an interval to avoid quick succession casts, and to avoid casting things on the same pawn too often-->
+                    <interval>25</interval> <!--Anything with 20 as a multiple would cause potential overuse-->
+                    <subNodes>
+                        <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                            <uniqueID>EBS_Abilities</uniqueID>
+                            <settingID>BerserkNeedle</settingID>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalHasAbility">
+                                    <ability>EBSA_BerserkNeedle</ability> <!--Forces a nearby target to go berserk-->
+                                    <subNodes>
+                                        <li Class="ThinkNode_ConditionalValidTargetForAbility">
+                                            <ability>EBSA_BerserkNeedle</ability>
+                                            <subnodes>
+                                                <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
+                                                    <abilities>
+                                                        <li>EBSA_BerserkNeedle</li>
+                                                    </abilities>
+                                                    <maxBodySize>99</maxBodySize>
+                                                </li>
+                                            </subnodes>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                        <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                            <uniqueID>EBS_Abilities</uniqueID>
+                            <settingID>DebilitatingNeedle</settingID>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalHasAbility">
+                                    <ability>EBSA_DebilitatingNeedle</ability> <!--Forces a nearby target to go berserk-->
+                                    <subNodes>
+                                        <li Class="ThinkNode_ConditionalValidTargetForAbility">
+                                            <ability>EBSA_DebilitatingNeedle</ability>
+                                            <subnodes>
+                                                <li Class="EBSGFramework.JobGiver_AICastAnyOfAbilityOnEnemyTarget">
+                                                    <abilities>
+                                                        <li>EBSA_DebilitatingNeedle</li>
+                                                    </abilities>
+                                                    <maxBodySize>99</maxBodySize>
+                                                </li>
+                                            </subnodes>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                    </subNodes>
+                </li>
+            </subNodes>
+        </thinkRoot>
+    </ThinkTreeDef>
+
+    <ThinkTreeDef>
+        <defName>EBSGA_DraftedColonist_ReactToShot</defName>
+        <insertTag>EBSGAI_DraftedColonist_ShotRecently</insertTag>
+        <insertPriority>100</insertPriority>
+        <thinkRoot Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                    <uniqueID>EBS_Abilities</uniqueID>
+                    <settingID>SmokeCloud</settingID>
+                    <subNodes>
+                        <li Class="ThinkNode_ConditionalHasAbility">
+                            <ability>EBSA_SmokeCloud</ability> <!--Creates a smoke cloud if the pawn has been shot in the past half hour-->
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalAbilityCastLastTick">
+                                    <ability>EBSA_SmokeCloud</ability>
+                                    <minTicksAgo>1200</minTicksAgo>
+                                    <subnodes>
+                                        <li Class="JobGiver_AICastAbilityOnSelf">
+                                            <ability>EBSA_SmokeCloud</ability>
+                                        </li>
+                                    </subnodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                    </subNodes>
+                </li>
+            </subNodes>
+        </thinkRoot>
+    </ThinkTreeDef>
+
+    <ThinkTreeDef>
+        <defName>EBSGA_DraftedColonist_ReactToMelee</defName>
+        <insertTag>EBSGAI_DraftedColonist_MeleeThreat</insertTag>
+        <insertPriority>100</insertPriority>
+        <thinkRoot Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="ThinkNode_ConditionalHashIntervalTick"> <!--Sets up an interval to avoid quick succession casts, and to avoid casting as soon as a single enemy is in range-->
+                    <interval>20</interval>
+                    <subnodes>
+                        <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                            <uniqueID>EBS_Abilities</uniqueID>
+                            <settingID>StartlingScreech</settingID>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalHasAbility">
+                                    <ability>EBSA_StartlingScreech</ability> <!--Stun opponents when they're too close to escape-->
+                                    <subNodes>
+                                        <li Class="JobGiver_AICastAbilityOnSelf">
+                                            <ability>EBSA_StartlingScreech</ability>
+                                        </li>
+                                    </subNodes>
+                                </li>        
+                            </subNodes>
+                        </li>
+                        <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                            <uniqueID>EBS_Abilities</uniqueID>
+                            <settingID>BlindingLuminescence</settingID>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalHasAbility">
+                                    <ability>EBSA_BlindingLuminescence</ability> <!--Blind opponents when they're too close to escape-->
+                                    <subNodes>
+                                        <li Class="JobGiver_AICastAbilityOnSelf">
+                                            <ability>EBSA_BlindingLuminescence</ability>
+                                        </li>
+                                    </subNodes>
+                                </li>        
+                            </subNodes>
+                        </li>
+                        <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                            <uniqueID>EBS_Abilities</uniqueID>
+                            <settingID>DisorientingScreech</settingID>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalHasAbility">
+                                    <ability>EBSA_DisorientingScreech</ability> <!--Disorient opponents when they're too close to escape-->
+                                    <subNodes>
+                                        <li Class="JobGiver_AICastAbilityOnSelf">
+                                            <ability>EBSA_DisorientingScreech</ability>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                    </subnodes>
+                </li>
+                <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                    <uniqueID>EBS_Abilities</uniqueID>
+                    <settingID>Pounce</settingID>
+                    <subNodes>
+                        <li Class="ThinkNode_ConditionalHasAbility"> <!--Escape if health is low and damage was taken recently-->
+                            <ability>EBSA_Pounce</ability>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalTotalDamage">
+                                    <thresholdPercent>0.5</thresholdPercent>
+                                    <subNodes>
+                                        <li Class="ThinkNode_HarmedRecently">
+                                            <thresholdTicks>120</thresholdTicks>
+                                            <subNodes>
+                                                <li Class="JobGiver_AIJumpEscapeEnemies">
+                                                    <ability>EBSA_Pounce</ability>
+                                                </li>
+                                            </subNodes>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                    </subNodes>
+                </li>
+            </subNodes>
+        </thinkRoot>
+    </ThinkTreeDef>
+        
+    <ThinkTreeDef>
+        <defName>EBSGA_DraftedColonist_ReactToInjury</defName>
+        <insertTag>EBSGAI_DraftedColonist_HarmedRecently</insertTag>
+        <insertPriority>100</insertPriority>
+        <thinkRoot Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                    <uniqueID>EBS_Abilities</uniqueID>
+                    <settingID>ChameleonLike</settingID>
+                    <subNodes>
+                        <li Class="ThinkNode_ConditionalHasAbility"> <!--Turn invisible if damaged recently to buy time for other stuff-->
+                            <ability>EBSA_Chameleonlike</ability>
+                            <subNodes>
+                                <li Class="JobGiver_AICastAbilityOnSelf">
+                                    <ability>EBSA_Chameleonlike</ability>
+                                </li>
+                            </subNodes>
+                        </li>        
+                    </subNodes>
+                </li>
+                <li Class="EBSGFramework.ThinkNode_ConditionalEBSGSetting">
+                    <uniqueID>EBS_Abilities</uniqueID>
+                    <settingID>DeadenNerves</settingID>
+                    <subNodes>
+                        <li Class="ThinkNode_ConditionalHasAbility"> <!--If notable damage has been taken, stop the pain-->
+                            <ability>EBSA_DeadenNerves</ability>
+                            <subNodes>
+                                <li Class="ThinkNode_ConditionalTotalDamage">
+                                    <thresholdPercent>0.25</thresholdPercent> 
+                                    <subNodes>
+                                        <li Class="JobGiver_AICastAbilityOnSelf">
+                                            <ability>EBSA_DeadenNerves</ability>
+                                        </li>
+                                    </subNodes>
+                                </li>
+                            </subNodes>
+                        </li>
+                    </subNodes>
+                </li>
+            </subNodes>
+        </thinkRoot>
+    </ThinkTreeDef>
 </Defs>

@@ -552,7 +552,7 @@
     <AbilityDef>
         <defName>EBSA_SirenCall</defName>
         <label>siren call</label>
-        <description>Let out an enchanting call that causes .</description>
+        <description>Let out an enchanting call that causes the targets in the area to walk towards the caster uncontrollably.</description>
         <iconPath>EBSA/Gene_FireSpray</iconPath>
         <cooldownTicksRange>10000</cooldownTicksRange>
         <aiCanUse>True</aiCanUse>
