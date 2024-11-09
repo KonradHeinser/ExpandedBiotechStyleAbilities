@@ -33,7 +33,7 @@
         <defName>EBSA_FoamSpew</defName>
         <label>foam spew</label>
         <description>Spit a stream of a sticky, firefoam-like substance from the mouth. The bile will quickly douse anything or anyone it hits, and also leave a layer of firefoam-like on the ground.\n\nThe bile is generated and stored by a small organ in the neck.</description>
-        <iconPath>UI/Icons/Genes/Gene_FoamSpray</iconPath>
+        <iconPath>EBSA/Gene_FoamSpew</iconPath>
         <cooldownTicksRange>30000</cooldownTicksRange>
         <charges>2</charges> <!--Has one less charge because it can cover a larger area, with the only downside being that the pawn must be closer-->
         <aiCanUse>False</aiCanUse>
@@ -64,7 +64,7 @@
         <defName>EBSA_AcidSpew</defName>
         <label>acid spew</label>
         <description>Spit a stream of a sticky, firefoam-like substance from the mouth. The bile will quickly douse anything or anyone it hits, and also leave a layer of firefoam-like on the ground.\n\nThe bile is generated and stored by a small organ in the neck.</description>
-        <iconPath>UI/Icons/Genes/Gene_AcidSpray</iconPath>
+        <iconPath>EBSA/Gene_AcidSpew</iconPath>
         <cooldownTicksRange>30000</cooldownTicksRange>
         <aiCanUse>True</aiCanUse>
         <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
@@ -94,7 +94,7 @@
         <defName>EBSA_BloodSpew</defName>
         <label>blood spew</label>
         <description>Spit a stream of blood from the mouth at a high enough velocity to pierce even metal.\n\nWill cause 30% bloodloss.</description>
-        <iconPath>UI/Icons/Genes/Gene_AcidSpray</iconPath>
+        <iconPath>EBSA/Gene_BloodSpew</iconPath>
         <cooldownTicksRange>30000</cooldownTicksRange>
         <aiCanUse>True</aiCanUse>
         <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
@@ -170,7 +170,7 @@
         <defName>EBSA_FoamBurst</defName>
         <label>foam burst</label>
         <description>Eject firefoam from the pores that douse all flames around them and leave firefoam coating the ground.</description>
-        <iconPath>EBSA/Gene_Chemburst</iconPath>
+        <iconPath>EBSA/Gene_FoamBurst</iconPath>
         <canUseAoeToGetTargets>True</canUseAoeToGetTargets>
         <targetRequired>False</targetRequired>
         <showCastingProgressBar>True</showCastingProgressBar>
@@ -216,7 +216,7 @@
         <defName>EBSA_BloodSpew_Hemogen</defName>
         <label>blood spew</label>
         <description>Spit a stream of blood from the mouth at a high enough velocity to pierce even metal.</description>
-        <iconPath>UI/Icons/Genes/Gene_AcidSpray</iconPath>
+        <iconPath>EBSA/Gene_BloodSpew</iconPath>
         <cooldownTicksRange>3000</cooldownTicksRange>
         <aiCanUse>True</aiCanUse>
         <warmupStartSound>AcidSpray_Warmup</warmupStartSound>
@@ -248,7 +248,7 @@
         <defName>EBSA_BloodyEclipse</defName>
         <label>bloody eclipse</label>
         <description>Release archite infused hemogen into the air to cause the clouds to rapidly darken, blotting out the sun in the area for several days.</description>
-        <iconPath>UI/Icons/Genes/Gene_LongJumpLegs</iconPath>
+        <iconPath>EBSA/Gene_BloodyEclipse</iconPath>
         <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
         <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
         <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
@@ -280,7 +280,7 @@
         <defName>EBSA_HemogenRefiner</defName>
         <label>hemogen refiner</label>
         <description>Filter and refine some of your own blood to replenish some hemogen. This process is very inefficient.</description>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_HemogenRefiner</iconPath>
         <hotKey>Misc1</hotKey>
         <hostile>False</hostile>
         <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
@@ -312,7 +312,7 @@
         <defName>EBSA_Hemometallize</defName>
         <label>hemometallize</label>
         <description>Convert hemogen into steel in a nearby tile.</description>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_Hemometallize</iconPath>
         <aiCanUse>False</aiCanUse>
         <cooldownTicksRange>2500</cooldownTicksRange>
         <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
@@ -351,7 +351,7 @@
         <defName>EBSA_DeadenNerves</defName>
         <label>deaden nerves</label>
         <description>Blocks pain pathways in the the caster's brain for a short time. This can allow a person to move and act even with grievous injuries which would normally incapacitate them.</description>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_DeadenNerves</iconPath>
         <hotKey>Misc1</hotKey>
         <hostile>False</hostile>
         <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
@@ -383,7 +383,7 @@
         <defName>EBSA_Chameleonlike</defName>
         <label>chameleon-like</label>
         <description>Activate pigments in the skin that will temporarily make it nigh-impossible to be observed clearly.</description>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_Chameleon</iconPath>
         <charges>2</charges>
         <cooldownPerCharge>True</cooldownPerCharge>
         <hostile>False</hostile>
@@ -414,7 +414,7 @@
         <defName>EBSA_BlindingLuminescence</defName>
         <label>blinding luminescence</label>
         <description>Activate a chemical in the skin that will create a short-lived blinding light.</description>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_BlindingLuminescence</iconPath>
         <hostile>False</hostile>
         <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
         <targetRequired>False</targetRequired>
@@ -451,7 +451,7 @@
         <defName>EBSA_SmokeCloud</defName>
         <label>smoke cloud</label>
         <description>Spray smoke from the pores that make it harder to shoot towards the surrounding area.</description>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_SmokeCloud</iconPath>
         <hotKey>Misc1</hotKey>
         <hostile>False</hostile>
         <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
@@ -485,7 +485,7 @@
         <defName>EBSA_DisorientingScreech</defName>
         <label>disorienting screech</label>
         <description>Let out an ear piercing screech that disrupts the balance of everyone after messing with all of their body's basic senses, and in many cases it can cause living beings to vomit vomting.</description>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_DisorientingScreech</iconPath>
         <targetRequired>False</targetRequired>
         <aiCanUse>True</aiCanUse>
         <ai_SearchAOEForTargets>True</ai_SearchAOEForTargets>
@@ -519,7 +519,7 @@
         <defName>EBSA_StartlingScreech</defName>
         <label>startling screech</label>
         <description>Let out a sudden ear piercing screech that rattles the brains of everyone nearby, causing them to freeze in place for a bit as they try to recover.</description>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_StartlingScreech</iconPath>
         <aiCanUse>True</aiCanUse>
         <ai_SearchAOEForTargets>True</ai_SearchAOEForTargets>
         <targetRequired>False</targetRequired>
@@ -553,7 +553,7 @@
         <defName>EBSA_SirenCall</defName>
         <label>siren call</label>
         <description>Let out an enchanting call that causes the targets in the area to walk towards the caster uncontrollably.</description>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_SirenCall</iconPath>
         <cooldownTicksRange>10000</cooldownTicksRange>
         <aiCanUse>True</aiCanUse>
         <displayOrder>300</displayOrder>
@@ -614,7 +614,7 @@
         <defName>EBSA_BerserkNeedle</defName>
         <label>berserk needle</label>
         <description>Shoot a small needle from the wrist that causes the target become filled with irrational rage for a couple hours.</description>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_BerserkNeedle</iconPath>
         <statBases>
             <Ability_Duration>42</Ability_Duration>
         </statBases>
@@ -632,7 +632,7 @@
         <defName>EBSA_DebilitatingNeedle</defName>
         <label>debilitating needle</label>
         <description>Shoot a small needle from the wrist that causes the target's body to become sluggish.</description>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_DebilitatingNeedle</iconPath>
         <statBases>
             <Ability_Duration>21</Ability_Duration>
         </statBases>
@@ -649,7 +649,7 @@
         <label>pacifying needle</label>
         <description>Shoot a small needle from the wrist that causes the target to feel soothed, ending any mental breaks they may have and increasing their mood for a while. While they may feel calmer, their minds will also be somewhat clouded.</description>
         <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_PacifyingNeedle</iconPath>
         <aiCanUse>False</aiCanUse>
         <hostile>False</hostile>
         <statBases>

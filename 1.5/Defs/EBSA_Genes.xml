@@ -46,7 +46,7 @@
         <defName>EBSA_FoamSpew</defName>
         <label>foam spew</label>
         <description>Carriers grow glands in the neck that generate and store a fire-retardant foam. They can spew this foam over an area to extinguish fires.</description>
-        <iconPath>UI/Icons/Genes/Gene_FoamSpray</iconPath>
+        <iconPath>EBSA/Gene_FoamSpew</iconPath>
         <displayCategory>Ability</displayCategory>
         <displayOrderInCategory>1.1</displayOrderInCategory>
         <abilities>
@@ -79,7 +79,7 @@
         <defName>EBSA_AcidSpew</defName>
         <label>acid spew</label>
         <description>Carriers grow glands in the neck that generate and store a sticky acid substance, along with acid-tolerant tissues in the mouth. They can spew this acid over an area, where it will stick to enemies and burn them.</description>
-        <iconPath>UI/Icons/Genes/Gene_AcidSpray</iconPath>
+        <iconPath>EBSA/Gene_AcidSpew</iconPath>
         <displayCategory>Ability</displayCategory>
         <marketValueFactor>1.5</marketValueFactor>
         <displayOrderInCategory>2.1</displayOrderInCategory>
@@ -108,7 +108,7 @@
         <defName>EBSA_BloodSpew</defName>
         <label>blood spew</label>
         <description>Users have an organ in their neck that can pierce the wall of their neck and project blood into an area at a high enough velocity to even pierce through steel. Even if the pawn does not fall unconcious due to the bloodloss, the organ will be unusable for a time as it repairs the vein and throat wall.\n\nHemogenic pawns develop this organ slightly differently, and will use hemogen for this spray instead of blood, which also allows them to use it more often.</description>
-        <iconPath>UI/Icons/Genes/Gene_AcidSpray</iconPath>
+        <iconPath>EBSA/Gene_BloodSpew</iconPath>
         <geneClass>EBSGFramework.SpawnAgeLimiter</geneClass><!--Earliest tier that processes abilities-->
         <displayCategory>Ability</displayCategory>
         <marketValueFactor>1.5</marketValueFactor>
@@ -195,7 +195,7 @@
         <defName>EBSA_FoamBurst</defName>
         <label>foam burst</label>
         <description>Carriers grow glands hidden in various locations around their body under the skin that generate and store a fire-retardant foam. They can shoot this foam out from their pores to cover themselves and the area around them in firefoam, dousing fires in the process.</description>
-        <iconPath>UI/Icons/Genes/Gene_FoamSpray</iconPath>
+        <iconPath>EBSA/Gene_FoamBurst</iconPath>
         <displayCategory>Ability</displayCategory>
         <displayOrderInCategory>1.2</displayOrderInCategory>
         <abilities>
@@ -260,10 +260,10 @@
         <defName>EBSA_BloodyEclipse</defName>
         <label>bloody eclipse</label>
         <description>Carriers of this gene can release a bunch of archite infused hemogen into the air that will settle in the clouds high above, and cause them to darken in a way that blots out the sun, and gives onlookers a similar spectacle to an eclipse.</description>
-        <iconPath>UI/Icons/Genes/Gene_LongJumpLegs</iconPath>
+        <iconPath>EBSA/Gene_BloodyEclipse</iconPath>
         <prerequisite>Hemogenic</prerequisite>
         <displayCategory>Hemogen</displayCategory>
-        <displayOrderInCategory>100</displayOrderInCategory>
+        <displayOrderInCategory>999</displayOrderInCategory>
         <abilities>
             <li>EBSA_BloodyEclipse</li>
         </abilities>
@@ -277,7 +277,7 @@
         <defName>EBSA_HemogenRefiner</defName>
         <label>hemogen refiner</label>
         <description>Carriers of this gene can filter and refine some of their own blood to replenish some hemogen. This process is very inefficient.</description>
-        <iconPath>UI/Icons/Genes/Gene_LongJumpLegs</iconPath>
+        <iconPath>EBSA/Gene_HemogenRefiner</iconPath>
         <prerequisite>Hemogenic</prerequisite>
         <displayCategory>Hemogen</displayCategory>
         <displayOrderInCategory>100.1</displayOrderInCategory>
@@ -294,7 +294,7 @@
         <defName>EBSA_Hemometallize</defName>
         <label>hemometallize</label>
         <description>Carriers of this gene can convert hemogen into steel through a complex system of extracting and refining certain elements in the hemogen.</description>
-        <iconPath>UI/Icons/Genes/Gene_LongJumpLegs</iconPath>
+        <iconPath>EBSA/Gene_Hemometallize</iconPath>
         <prerequisite>Hemogenic</prerequisite>
         <displayCategory>Hemogen</displayCategory>
         <displayOrderInCategory>100.2</displayOrderInCategory>
@@ -312,7 +312,7 @@
         <defName>EBSA_DeadenNerves</defName>
         <label>deaden nerves</label>
         <description>Carriers of this gene grow have a unique gland in their brain just above the spine that allows them to almost completely ignore pain for a brief time when the pawn chooses to. After the gland finishes excreting its chemicals, it needs a few hours to refill.</description>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_DeadenNerves</iconPath>
         <displayCategory>Ability</displayCategory>
         <abilities>
             <li>EBSA_DeadenNerves</li>
@@ -334,7 +334,7 @@
         <defName>EBSA_Chameleonlike</defName>
         <label>chameleon-like</label>
         <description>Carriers of this gene have a unique inactive pigment in their skin that is normally not visible, but when activate it becomes visible and automatically shifts its colors to reflect the nearby environment, making it nigh-impossible to keep track of the pawn.</description>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_Chameleon</iconPath>
         <displayCategory>Ability</displayCategory>
         <abilities>
             <li>EBSA_Chameleonlike</li>
@@ -349,7 +349,7 @@
         <defName>EBSA_BlindingLuminescence</defName>
         <label>blinding luminescence</label>
         <description>Carriers of this gene have a unique chemical in their skin that can be ejected into the air to create a short-lived blinding light.</description>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_BlindingLuminescence</iconPath>
         <displayCategory>Ability</displayCategory>
         <abilities>
             <li>EBSA_BlindingLuminescence</li>
@@ -364,7 +364,7 @@
         <defName>EBSA_DisorientingScreech</defName>
         <label>disorienting screech</label>
         <description>Carriers of this gene can let out an ear piercing screech that disrupts the balance of everyone after messing with all of their body's basic senses, and in many cases it can cause living beings to vomting.</description>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_DisorientingScreech</iconPath>
         <displayCategory>Ability</displayCategory>
         <displayOrderInCategory>10.0</displayOrderInCategory>
         <abilities>
@@ -380,7 +380,7 @@
         <defName>EBSA_StartlingScreech</defName>
         <label>startling screech</label>
         <description>Carriers of this gene can let out an ear piercing screech that rattles the brains of everyone nearby, causing them to freeze in place for a bit as they try to recover.</description>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_StartlingScreech</iconPath>
         <displayCategory>Ability</displayCategory>
         <displayOrderInCategory>10.1</displayOrderInCategory>
         <abilities>
@@ -396,7 +396,7 @@
         <defName>EBSA_SirenCall</defName>
         <label>siren call</label>
         <description>Carriers of this gene can let out an enchanting call that causes hostile pawns to stop what they are doing to subconsciously walk towards the carrier.</description>
-        <iconPath>UI/Icons/Genes/Gene_LongJumpLegs</iconPath>
+        <iconPath>EBSA/Gene_SirenCall</iconPath>
         <displayCategory>Ability</displayCategory>
         <displayOrderInCategory>10.2</displayOrderInCategory>
         <abilities>
@@ -412,7 +412,7 @@
         <defName>EBSA_SmokeCloud</defName>
         <label>smoke cloud</label>
         <description>Carriers of this gene have small glands around their body that can compress to release a smoke cloud in the area around them.</description>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_SmokeCloud</iconPath>
         <displayCategory>Ability</displayCategory>
         <abilities>
             <li>EBSA_SmokeCloud</li>
@@ -427,7 +427,7 @@
         <defName>EBSA_BerserkNeedle</defName>
         <label>berserk needles</label>
         <description>Carriers of this gene have a small clump of poisonous needles hidden in their wrists that they can shoot at a target to drive them into a mindless rampage. It takes the body a couple days to regrow each needle.\n\nAny being with at least 50% toxic resistance will be completely immune to the effects of the needle.</description>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_BerserkNeedle</iconPath>
         <displayCategory>Ability</displayCategory>
         <displayOrderInCategory>150</displayOrderInCategory>
         <abilities>
@@ -450,7 +450,7 @@
         <defName>EBSA_DebilitatingNeedle</defName>
         <label>debilitating needles</label>
         <description>Carriers of this gene have a small clump of poisonous needles hidden in their wrists that they can shoot at a target to cause their bodies to become sluggish. It takes the body a couple days to regrow each needle.\n\nAny being with at least 50% toxic resistance will be completely immune to the effects of the needle.</description>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_DebilitatingNeedle</iconPath>
         <displayCategory>Ability</displayCategory>
         <displayOrderInCategory>150.1</displayOrderInCategory>
         <abilities>
@@ -473,7 +473,7 @@
         <defName>EBSA_PacifyingNeedle</defName>
         <label>pacifying needles</label>
         <description>Carriers of this gene have a small clump of poisonous needles hidden in their wrists that they can shoot at a target to make them feel soothed, ending any mental breaks they may have and increasing their mood for a while. While they may feel calmer, their minds will also be somewhat clouded.\n\nUnlike with the other poisonous needle genes, these ones are enhanced by archites, allowing them to completely ignore any toxic resistance the target may have.</description>
-        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <iconPath>EBSA/Gene_PacifyingNeedle</iconPath>
         <displayCategory>Ability</displayCategory>
         <displayOrderInCategory>150.2</displayOrderInCategory>
         <abilities>

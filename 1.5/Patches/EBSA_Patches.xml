@@ -58,85 +58,85 @@
                 <individualSettings>
                     <li>
                         <settingID>FireSpray</settingID>
-                        <label>fire spray</label>
+                        <label>Fire spray</label>
                         <description>Allow colonists to use fire spray automatically.</description>
                         <defaultSetting>False</defaultSetting>
                     </li>
                     <li>
                         <settingID>AcidSpew</settingID>
-                        <label>acid spew</label>
+                        <label>Acid spew</label>
                         <description>Allow colonists to use acid spew automatically.</description>
                         <defaultSetting>False</defaultSetting>
                     </li>
                     <li>
                         <settingID>BloodSpew</settingID>
-                        <label>blood spew</label>
+                        <label>Blood spew</label>
                         <description>Allow colonists to use blood spew automatically.</description>
                         <defaultSetting>False</defaultSetting>
                     </li>
                     <li>
                         <settingID>Chemburst</settingID>
-                        <label>chemburst</label>
+                        <label>Chemburst</label>
                         <description>Allow colonists to use chemburst automatically.</description>
                         <defaultSetting>False</defaultSetting>
                     </li>
                     <li>
                         <settingID>Pounce</settingID>
-                        <label>pounce</label>
+                        <label>Pounce</label>
                         <description>Allow colonists to use pounce to automatically escape when below half health.</description>
                         <defaultSetting>False</defaultSetting>
                     </li>
                     <li>
                         <settingID>HemogenRefiner</settingID>
-                        <label>hemogen refiner</label>
+                        <label>Hemogen refiner</label>
                         <description>Allow colonists to use hemogen refiner when almost out of hemogen and completely free of bloodloss. This will not activate if there's an active enemy on the map.</description>
                         <defaultSetting>False</defaultSetting>
                     </li>
                     <li>
                         <settingID>DeadenNerves</settingID>
-                        <label>deaden nerves</label>
+                        <label>Deaden nerves</label>
                         <description>Allow colonists to use deaden nerves automatically after taking damage. This will only activate if there's still an active enemy on the map, and they've lost at least 25% health to avoid wasteful casts.</description>
                         <defaultSetting>False</defaultSetting>
                     </li>
                     <li>
                         <settingID>ChameleonLike</settingID>
-                        <label>chameleon-like</label>
+                        <label>Chameleon-like</label>
                         <description>Allow colonists to use chameleon-like automatically after being injured. This will only activate while there's an active enemy on the map.</description>
                         <defaultSetting>False</defaultSetting>
                     </li>
                     <li>
                         <settingID>BlindingLuminescence</settingID>
-                        <label>blinding luminescence</label>
+                        <label>Blinding luminescence</label>
                         <description>Allow colonists to use blinding luminescence automatically.</description>
                         <defaultSetting>False</defaultSetting>
                     </li>
                     <li>
                         <settingID>SmokeCloud</settingID>
-                        <label>smoke cloud</label>
+                        <label>Smoke cloud</label>
                         <description>Allow colonists to use smoke cloud automatically.</description>
                         <defaultSetting>False</defaultSetting>
                     </li>
                     <li>
                         <settingID>DisorientingScreech</settingID>
-                        <label>disorienting screech</label>
+                        <label>Disorienting screech</label>
                         <description>Allow colonists to use disorienting screech automatically.</description>
                         <defaultSetting>False</defaultSetting>
                     </li>
                     <li>
                         <settingID>StartlingScreech</settingID>
-                        <label>startling screech</label>
+                        <label>Startling screech</label>
                         <description>Allow colonists to use startling screech automatically.</description>
                         <defaultSetting>False</defaultSetting>
                     </li>
                     <li>
                         <settingID>BerserkNeedle</settingID>
-                        <label>berserk needle</label>
+                        <label>Berserk needle</label>
                         <description>Allow colonists to use berserk needle automatically. There are checks in place to help avoid having colonists use all of their charges in quick succession.</description>
                         <defaultSetting>False</defaultSetting>
                     </li>
                     <li>
                         <settingID>DebilitatingNeedle</settingID>
-                        <label>debilitating needle</label>
+                        <label>Debilitating needle</label>
                         <description>Allow colonists to use debilitating needle automatically. There are checks in place to help avoid having colonists use all of their charges in quick succession.</description>
                         <defaultSetting>False</defaultSetting>
                     </li>
