@@ -32,7 +32,7 @@
     <AbilityDef>
         <defName>EBSA_FoamSpew</defName>
         <label>foam spew</label>
-        <description>Spit a stream of a sticky, firefoam-like substance from the mouth. The bile will quickly douse anything or anyone it hits, and also leave a layer of firefoam-like on the ground.\n\nThe bile is generated and stored by a small organ in the neck.</description>
+        <description>Spit a stream of a sticky, firefoam-like substance from the mouth. The bile will quickly douse anything or anyone it hits, and also leave a layer of firefoam-like on the ground.</description>
         <iconPath>EBSA/Gene_FoamSpew</iconPath>
         <cooldownTicksRange>30000</cooldownTicksRange>
         <charges>2</charges> <!--Has one less charge because it can cover a larger area, with the only downside being that the pawn must be closer-->
@@ -63,7 +63,7 @@
     <AbilityDef>
         <defName>EBSA_AcidSpew</defName>
         <label>acid spew</label>
-        <description>Spit a stream of a sticky, firefoam-like substance from the mouth. The bile will quickly douse anything or anyone it hits, and also leave a layer of firefoam-like on the ground.\n\nThe bile is generated and stored by a small organ in the neck.</description>
+        <description>Spit a stream of sticky acidic substance from the mouth, burning any target it lands on.</description>
         <iconPath>EBSA/Gene_AcidSpew</iconPath>
         <cooldownTicksRange>30000</cooldownTicksRange>
         <aiCanUse>True</aiCanUse>
@@ -110,7 +110,7 @@
         </verbProperties>
         <comps>
             <li Class="EBSGFramework.CompProperties_AbilitySpew">
-                <range>5.9</range>
+                <range>7.9</range>
                 <damage>RangedStab</damage>
                 <filthDef>EBSA_BloodSpew</filthDef>
                 <amount>30</amount>
@@ -129,7 +129,7 @@
     <AbilityDef>
         <defName>EBSA_Chemburst</defName>
         <label>chemburst</label>
-        <description>Eject unstable from the pores that ignite as soon as they touch something flammable, and leave some burning chemfuel around them.</description>
+        <description>Eject unstable chemfuel from the pores that ignite as soon as they touch something flammable, and leave some burning chemfuel around them.</description>
         <iconPath>EBSA/Gene_Chemburst</iconPath>
         <canUseAoeToGetTargets>True</canUseAoeToGetTargets>
         <targetRequired>False</targetRequired>
@@ -231,7 +231,7 @@
         </verbProperties>
         <comps>
             <li Class="EBSGFramework.CompProperties_AbilitySpew">
-                <range>5.9</range>
+                <range>7.9</range>
                 <damage>RangedStab</damage>
                 <filthDef>EBSA_BloodSpew</filthDef>
                 <amount>30</amount>
@@ -484,7 +484,7 @@
     <AbilityDef>
         <defName>EBSA_DisorientingScreech</defName>
         <label>disorienting screech</label>
-        <description>Let out an ear piercing screech that disrupts the balance of everyone after messing with all of their body's basic senses, and in many cases it can cause living beings to vomit vomting.</description>
+        <description>Let out an ear piercing screech that disrupts the balance of everyone after messing with all of their body's basic senses, and in many cases it can cause living beings to vomit.</description>
         <iconPath>EBSA/Gene_DisorientingScreech</iconPath>
         <targetRequired>False</targetRequired>
         <aiCanUse>True</aiCanUse>
