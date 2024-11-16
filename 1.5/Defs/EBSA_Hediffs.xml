@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-    <HediffDef>
+    <HediffDef Name="EBSA_HediffBase" Abstract="True">
+        <hediffClass>HediffWithComps</hediffClass>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <showRemainingTime>True</showRemainingTime>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="EBSA_HediffBase">
         <defName>EBSA_DeadendNerves</defName>
         <label>deadend nerves</label>
         <description>Pyschologically-induced pain insensitivity.</description>
@@ -12,7 +22,7 @@
         </stages>
     </HediffDef>
 
-    <HediffDef>
+    <HediffDef ParentName="EBSA_HediffBase">
         <defName>EBSA_DebilitatingNeedle</defName>
         <label>debilitating needle</label>
         <description>Slugishness caused by a poison needle.</description>
@@ -28,7 +38,7 @@
         </stages>
     </HediffDef>
 
-    <HediffDef>
+    <HediffDef ParentName="EBSA_HediffBase">
         <defName>EBSA_Chameleonlike</defName>
         <label>chameleon</label>
         <description>This pawn is blending into the environment, making it nigh-impossible to keep track of their location.</description>
@@ -38,14 +48,10 @@
             <li Class="HediffCompProperties_Invisibility">
                 <visibleToPlayer>true</visibleToPlayer>
             </li>
-            <li Class="HediffCompProperties_Disappears">
-                <showRemainingTime>True</showRemainingTime>
-            </li>
-            <li Class="HediffCompProperties_DisappearsOnDeath"/>
         </comps>
     </HediffDef>
 
-    <HediffDef>
+    <HediffDef ParentName="EBSA_HediffBase">
         <defName>EBSA_BlindingLuminescence</defName>
         <label>blinding luminescence</label>
         <description>Blurred and spotty vision caused by a sudden blinding light.</description>
@@ -61,7 +67,7 @@
         </stages>
     </HediffDef>
 
-    <HediffDef>
+    <HediffDef ParentName="EBSA_HediffBase">
         <defName>EBSA_DisorientingScreech</defName>
         <label>disorienting screech</label>
         <description>All that can be heard is ringing, and it's hard to walk in a straight line.</description>
@@ -80,22 +86,15 @@
         </comps>
     </HediffDef>
 
-    <HediffDef>
+    <HediffDef ParentName="EBSA_HediffBase">
         <defName>EBSA_PacifyingNeedle</defName>
         <label>pacifying needle</label>
         <description>A clouded, but content, mind.</description>
-        <hediffClass>HediffWithComps</hediffClass>
         <stages>
             <li>
                 <partEfficiencyOffset>-0.20</partEfficiencyOffset>
             </li>
         </stages>  
-        <comps>
-            <li Class="HediffCompProperties_Disappears">
-                <showRemainingTime>True</showRemainingTime>
-            </li>
-            <li Class="HediffCompProperties_DisappearsOnDeath"/>
-        </comps>
     </HediffDef>
 
     <ThoughtDef>

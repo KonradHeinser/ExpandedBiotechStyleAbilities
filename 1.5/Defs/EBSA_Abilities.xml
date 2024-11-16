@@ -375,6 +375,7 @@
             <li Class="CompProperties_AbilityGiveHediff">
                 <compClass>CompAbilityEffect_GiveHediff</compClass>
                 <hediffDef>EBSA_DeadendNerves</hediffDef>
+                <replaceExisting>true</replaceExisting>
             </li>
         </comps>
     </AbilityDef>
@@ -406,6 +407,7 @@
             <li Class="CompProperties_AbilityGiveHediff">
                 <compClass>CompAbilityEffect_GiveHediff</compClass>
                 <hediffDef>EBSA_Chameleonlike</hediffDef>
+                <replaceExisting>true</replaceExisting>
             </li>
         </comps>
     </AbilityDef>
@@ -439,6 +441,7 @@
                 <compClass>CompAbilityEffect_GiveHediff</compClass>
                 <hediffDef>EBSA_BlindingLuminescence</hediffDef>
                 <ignoreSelf>True</ignoreSelf>
+                <replaceExisting>true</replaceExisting>
             </li>
             <li Class="CompProperties_AbilityEffecterOnTarget">
                 <effecterDef>EBSA_BlindingLuminescence</effecterDef>
@@ -508,6 +511,7 @@
                 <compClass>CompAbilityEffect_GiveHediff</compClass>
                 <hediffDef>EBSA_DisorientingScreech</hediffDef>
                 <ignoreSelf>True</ignoreSelf>
+                <replaceExisting>true</replaceExisting>
             </li>
             <li Class="CompProperties_AbilityRequiresCapacity">
                 <capacity>Talking</capacity>
@@ -640,6 +644,7 @@
             <li Class="CompProperties_AbilityGiveHediff">
                 <compClass>CompAbilityEffect_GiveHediff</compClass>
                 <hediffDef>EBSA_DebilitatingNeedle</hediffDef>
+                <replaceExisting>true</replaceExisting>
             </li>
         </comps>
     </AbilityDef>
@@ -660,6 +665,7 @@
                 <compClass>CompAbilityEffect_GiveHediff</compClass>
                 <hediffDef>EBSA_PacifyingNeedle</hediffDef>
                 <onlyBrain>True</onlyBrain>
+                <replaceExisting>true</replaceExisting>
             </li>
             <li Class="EBSGFramework.CompProperties_AbilityStopMentalNoPsychic">
                 <exceptions><li>Jailbreaker</li></exceptions>
