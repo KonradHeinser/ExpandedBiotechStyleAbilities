@@ -176,6 +176,7 @@
         <showCastingProgressBar>True</showCastingProgressBar>
         <warmupStartSound>FoamSpray_Warmup</warmupStartSound>
         <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
+        <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
         <aiCanUse>False</aiCanUse>
         <cooldownTicksRange>30000</cooldownTicksRange>
         <verbProperties>
@@ -318,6 +319,7 @@
         <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
         <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
         <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+        <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
         <hostile>false</hostile>
         <verbProperties>
             <verbClass>Verb_CastAbility</verbClass>
