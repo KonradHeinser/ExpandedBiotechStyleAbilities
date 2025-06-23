@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <AbilityDef>
+        <defName>EBSA_FireSpray</defName>
+        <label>fire spray</label>
+        <description>Spray a sticky flammable substance from glands in the neck up through the mouth and all over the target area. The substance will stick to targets and burn them, potentially setting them and the surrounding area on fire.</description>
+        <iconPath>EBSA/Gene_FireSpray</iconPath>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <aiCanUse>True</aiCanUse>
+        <ai_IsIncendiary>true</ai_IsIncendiary>
+        <displayOrder>300</displayOrder>
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
+        <warmupStartSound>FireSpew_Warmup</warmupStartSound>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>8.9</range>
+            <warmupTime>0.5</warmupTime>
+            <soundCast>FireSpew_Resolve</soundCast>
+            <targetParams>
+                <canTargetLocations>True</canTargetLocations>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilitySprayLiquid">
+                <projectileDef>EBSA_Proj_ChemFire</projectileDef>
+                <numCellsToHit>9</numCellsToHit>
+                <sprayEffecter>EBSA_FireSpray_Directional</sprayEffecter>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_FoamSpew</defName>
+        <label>foam spew</label>
+        <description>Spit a stream of a sticky, firefoam-like substance from the mouth. The bile will quickly douse anything or anyone it hits, and also leave a layer of firefoam-like on the ground.</description>
+        <iconPath>EBSA/Gene_FoamSpew</iconPath>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <charges>2</charges> <!--Has one less charge because it can cover a larger area, with the only downside being that the pawn must be closer-->
+        <aiCanUse>False</aiCanUse>
+        <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
+        <warmupStartSound>FoamSpray_Warmup</warmupStartSound>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>7.9</range>
+            <warmupTime>1</warmupTime>
+            <soundCast>FoamSpray_Resolve</soundCast>
+            <targetParams>
+                <canTargetLocations>True</canTargetLocations>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="EBSGFramework.CompProperties_AbilitySpew">
+                <range>7.9</range>
+                <damage>Extinguish</damage>
+                <filthDef>Filth_FireFoam</filthDef>
+                <effecterDef>EBSA_Foam_Spew</effecterDef>
+                <angle>45</angle> <!--Angles under 40 tend to start skipping some tiles close to the pawn occasionally-->
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_AcidSpew</defName>
+        <label>acid spew</label>
+        <description>Spit a stream of sticky acidic substance from the mouth, burning any target it lands on.</description>
+        <iconPath>EBSA/Gene_AcidSpew</iconPath>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <aiCanUse>True</aiCanUse>
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
+        <warmupStartSound>AcidSpray_Warmup</warmupStartSound>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>7.9</range>
+            <warmupTime>1</warmupTime>
+            <soundCast>AcidSpray_Resolve</soundCast>
+            <targetParams>
+                <canTargetLocations>True</canTargetLocations>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="EBSGFramework.CompProperties_AbilitySpew">
+                <range>7.9</range>
+                <damage>AcidBurn</damage>
+                <filthDef>Filth_SpentAcid</filthDef>
+                <amount>25</amount>
+                <effecterDef>EBSA_AcidSpew</effecterDef>
+                <angle>45</angle> <!--Angles under 40 tend to start skipping some tiles close to the pawn occasionally-->
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_BloodSpew</defName>
+        <label>blood spew</label>
+        <description>Spit a stream of blood from the mouth at a high enough velocity to pierce even metal.\n\nWill cause 30% bloodloss.</description>
+        <iconPath>EBSA/Gene_BloodSpew</iconPath>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <aiCanUse>True</aiCanUse>
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
+        <warmupStartSound>AcidSpray_Warmup</warmupStartSound>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>7.9</range>
+            <warmupTime>1</warmupTime>
+            <soundCast>AcidSpray_Resolve</soundCast>
+            <targetParams>
+                <canTargetLocations>True</canTargetLocations>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="EBSGFramework.CompProperties_AbilitySpew">
+                <range>7.9</range>
+                <damage>RangedStab</damage>
+                <filthDef>EBSA_BloodSpew</filthDef>
+                <amount>30</amount>
+                <effecterDef>EBSA_BloodSpew</effecterDef>
+                <angle>45</angle> <!--Angles under 40 tend to start skipping some tiles close to the pawn occasionally-->
+            </li>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>BloodLoss</hediffDef>
+                <severity>0.3</severity>
+                <onlyApplyToSelf>True</onlyApplyToSelf>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_Chemburst</defName>
+        <label>chemburst</label>
+        <description>Eject unstable chemfuel from the pores that ignite as soon as they touch something flammable, and leave some burning chemfuel around them.</description>
+        <iconPath>EBSA/Gene_Chemburst</iconPath>
+        <canUseAoeToGetTargets>True</canUseAoeToGetTargets>
+        <targetRequired>False</targetRequired>
+        <ai_SearchAOEForTargets>True</ai_SearchAOEForTargets>
+        <showCastingProgressBar>True</showCastingProgressBar>
+        <warmupStartSound>FireSpew_Warmup</warmupStartSound>
+        <ai_IsIncendiary>true</ai_IsIncendiary>
+        <aiCanUse>True</aiCanUse>
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>3.9</range>
+            <drawAimPie>False</drawAimPie>
+            <warmupTime>1</warmupTime>
+            <requireLineOfSight>False</requireLineOfSight>
+            <targetParams>
+                <canTargetPawns>True</canTargetPawns>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="EBSGFramework.CompProperties_EBSGBurst">
+                <explosion>
+                    <radius>3.9</radius>
+                    <damageDef>Flame</damageDef>
+                    <damageAmount>20</damageAmount>
+                    <excludeRadius>0.9</excludeRadius>
+                    <chanceToStartFire>1</chanceToStartFire>
+                    <preExplosionThing>Filth_Fuel</preExplosionThing>
+                    <preExplosionThingChance>0.1</preExplosionThingChance>
+                </explosion>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_FoamBurst</defName>
+        <label>foam burst</label>
+        <description>Eject firefoam from the pores that douse all flames around them and leave firefoam coating the ground.</description>
+        <iconPath>EBSA/Gene_FoamBurst</iconPath>
+        <canUseAoeToGetTargets>True</canUseAoeToGetTargets>
+        <targetRequired>False</targetRequired>
+        <showCastingProgressBar>True</showCastingProgressBar>
+        <warmupStartSound>FoamSpray_Warmup</warmupStartSound>
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
+        <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
+        <aiCanUse>False</aiCanUse>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>4.9</range>
+            <drawAimPie>False</drawAimPie>
+            <warmupTime>1</warmupTime>
+            <requireLineOfSight>False</requireLineOfSight>
+            <targetParams>
+                <canTargetPawns>True</canTargetPawns>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="EBSGFramework.CompProperties_EBSGBurst">
+                <explosion>
+                    <radius>4.9</radius>
+                    <damageDef>Extinguish</damageDef>
+                    <exclusions>None</exclusions>
+                    <preExplosionThing>Filth_FireFoam</preExplosionThing>
+                    <preExplosionThingChance>1</preExplosionThingChance>
+                </explosion>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef ParentName="LongJump">
+        <defName>EBSA_Pounce</defName>
+        <label>pounce</label>
+        <description>Jump to a distant location using a super-strong leg muscle.</description>
+        <iconPath>EBSA/Gene_Pounce</iconPath>
+        <cooldownTicksRange>2500</cooldownTicksRange>
+        <comps Inherit="False" />
+    </AbilityDef>
+
+    <!--Hemogenic Pawns-->
+
+    <AbilityDef>
+        <defName>EBSA_BloodSpew_Hemogen</defName>
+        <label>blood spew</label>
+        <description>Spit a stream of blood from the mouth at a high enough velocity to pierce even metal.</description>
+        <iconPath>EBSA/Gene_BloodSpew</iconPath>
+        <cooldownTicksRange>3000</cooldownTicksRange>
+        <aiCanUse>True</aiCanUse>
+        <warmupStartSound>AcidSpray_Warmup</warmupStartSound>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>7.9</range>
+            <warmupTime>1</warmupTime>
+            <soundCast>AcidSpray_Resolve</soundCast>
+            <targetParams>
+                <canTargetLocations>True</canTargetLocations>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="EBSGFramework.CompProperties_AbilitySpew">
+                <range>7.9</range>
+                <damage>RangedStab</damage>
+                <filthDef>EBSA_BloodSpew</filthDef>
+                <amount>30</amount>
+                <effecterDef>EBSA_BloodSpew</effecterDef>
+                <angle>45</angle> <!--Angles under 40 tend to start skipping some tiles close to the pawn occasionally-->
+            </li>
+            <li Class="CompProperties_AbilityHemogenCost">
+                <hemogenCost>0.1</hemogenCost>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_BloodyEclipse</defName>
+        <label>bloody eclipse</label>
+        <description>Release archite infused hemogen into the air to cause the clouds to rapidly darken, blotting out the sun in the area for several days.</description>
+        <iconPath>EBSA/Gene_BloodyEclipse</iconPath>
+        <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+        <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
+        <aiCanUse>False</aiCanUse>
+        <targetRequired>False</targetRequired>
+        <cooldownTicksRange>300000</cooldownTicksRange> <!--5 day cooldown-->
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
+        <hostile>False</hostile>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>10</warmupTime>
+            <range>0.9</range>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="EBSGFramework.CompProperties_TriggerGameCondition">
+                <gameCondition>Eclipse</gameCondition>
+                <ticks>240000</ticks> <!--4 days-->
+            </li>
+            <li Class="CompProperties_AbilityHemogenCost">
+                <hemogenCost>0.8</hemogenCost>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_HemogenRefiner</defName>
+        <label>hemogen refiner</label>
+        <description>Filter and refine some of your own blood to replenish some hemogen. This process is very inefficient.</description>
+        <iconPath>EBSA/Gene_HemogenRefiner</iconPath>
+        <hotKey>Misc1</hotKey>
+        <hostile>False</hostile>
+        <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
+        <aiCanUse>False</aiCanUse>
+        <targetRequired>False</targetRequired>
+        <cooldownTicksRange>2500</cooldownTicksRange>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.25</warmupTime>
+            <range>0.9</range>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>BloodLoss</hediffDef>
+                <severity>0.35</severity>
+                <onlyApplyToSelf>True</onlyApplyToSelf>
+            </li>
+            <li Class="CompProperties_AbilityHemogenCost">
+                <hemogenCost>-0.1</hemogenCost>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_Hemometallize</defName>
+        <label>hemometallize</label>
+        <description>Convert hemogen into steel in a nearby tile.</description>
+        <iconPath>EBSA/Gene_Hemometallize</iconPath>
+        <aiCanUse>False</aiCanUse>
+        <cooldownTicksRange>2500</cooldownTicksRange>
+        <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+        <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
+        <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
+        <hostile>false</hostile>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>1</warmupTime>
+            <range>1.9</range>
+            <targetParams>
+                <canTargetPawns>False</canTargetPawns>
+                <canTargetBuildings>False</canTargetBuildings>
+                <canTargetLocations>True</canTargetLocations>
+                <canTargetPlants>False</canTargetPlants>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilityHemogenCost">
+                <hemogenCost>0.5</hemogenCost>
+            </li>
+            <li Class="EBSGFramework.CompProperties_AbilityCreateItems">
+                <thingPattern>
+                    <li>
+                        <thing>Steel</thing>
+                        <count>25</count>
+                    </li>
+                </thingPattern>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <!--Genetic Psycasts-->
+    
+    <AbilityDef>
+        <defName>EBSA_DeadenNerves</defName>
+        <label>deaden nerves</label>
+        <description>Blocks pain pathways in the the caster's brain for a short time. This can allow a person to move and act even with grievous injuries which would normally incapacitate them.</description>
+        <iconPath>EBSA/Gene_DeadenNerves</iconPath>
+        <hotKey>Misc1</hotKey>
+        <hostile>False</hostile>
+        <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
+        <targetRequired>False</targetRequired>
+        <charges>2</charges>
+        <cooldownPerCharge>True</cooldownPerCharge>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
+        <statBases>
+            <Ability_Duration>84</Ability_Duration>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.25</warmupTime>
+            <range>0.9</range>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>EBSA_DeadendNerves</hediffDef>
+                <replaceExisting>true</replaceExisting>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_Chameleonlike</defName>
+        <label>chameleon-like</label>
+        <description>Activate pigments in the skin that will temporarily make it nigh-impossible to be observed clearly.</description>
+        <iconPath>EBSA/Gene_Chameleon</iconPath>
+        <charges>2</charges>
+        <cooldownPerCharge>True</cooldownPerCharge>
+        <hostile>False</hostile>
+        <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
+        <targetRequired>False</targetRequired>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
+        <statBases>
+            <Ability_Duration>15</Ability_Duration>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.25</warmupTime>
+            <range>0.9</range>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>EBSA_Chameleonlike</hediffDef>
+                <replaceExisting>true</replaceExisting>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_BlindingLuminescence</defName>
+        <label>blinding luminescence</label>
+        <description>Activate a chemical in the skin that will create a short-lived blinding light.</description>
+        <iconPath>EBSA/Gene_BlindingLuminescence</iconPath>
+        <hostile>False</hostile>
+        <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
+        <targetRequired>False</targetRequired>
+        <aiCanUse>True</aiCanUse>
+        <ai_SearchAOEForTargets>True</ai_SearchAOEForTargets>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
+        <statBases>
+            <Ability_Duration>15</Ability_Duration>
+            <Ability_EffectRadius>5.9</Ability_EffectRadius>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.25</warmupTime>
+            <range>5.9</range>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>EBSA_BlindingLuminescence</hediffDef>
+                <ignoreSelf>True</ignoreSelf>
+                <replaceExisting>true</replaceExisting>
+            </li>
+            <li Class="CompProperties_AbilityEffecterOnTarget">
+                <effecterDef>EBSA_BlindingLuminescence</effecterDef>
+                <maintainForTicks>120</maintainForTicks>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_SmokeCloud</defName>
+        <label>smoke cloud</label>
+        <description>Spray smoke from the pores that make it harder to shoot towards the surrounding area.</description>
+        <iconPath>EBSA/Gene_SmokeCloud</iconPath>
+        <hotKey>Misc1</hotKey>
+        <hostile>False</hostile>
+        <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
+        <targetRequired>False</targetRequired>
+        <charges>4</charges>
+        <cooldownPerCharge>True</cooldownPerCharge>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
+        <statBases>
+            <Ability_Duration>15</Ability_Duration>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.25</warmupTime>
+            <range>0.9</range>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+                <canTargetLocations>True</canTargetLocations>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilitySmokepop">
+                <smokeRadius>4.9</smokeRadius>
+                <clamorType>Ability</clamorType>
+                <clamorRadius>15</clamorRadius>
+            </li>
+        </comps>
+    </AbilityDef>
+    
+    <AbilityDef>
+        <defName>EBSA_DisorientingScreech</defName>
+        <label>disorienting screech</label>
+        <description>Let out an ear piercing screech that disrupts the balance of everyone after messing with all of their body's basic senses, and in many cases it can cause living beings to vomit.</description>
+        <iconPath>EBSA/Gene_DisorientingScreech</iconPath>
+        <targetRequired>False</targetRequired>
+        <aiCanUse>True</aiCanUse>
+        <ai_SearchAOEForTargets>True</ai_SearchAOEForTargets>
+        <cooldownTicksRange>30000</cooldownTicksRange>
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
+        <statBases>
+            <Ability_Duration>10</Ability_Duration>
+            <Ability_EffectRadius>5.9</Ability_EffectRadius>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.25</warmupTime>
+            <range>5.9</range>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>EBSA_DisorientingScreech</hediffDef>
+                <ignoreSelf>True</ignoreSelf>
+                <replaceExisting>true</replaceExisting>
+            </li>
+            <li Class="CompProperties_AbilityRequiresCapacity">
+                <capacity>Talking</capacity>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_StartlingScreech</defName>
+        <label>startling screech</label>
+        <description>Let out a sudden ear piercing screech that rattles the brains of everyone nearby, causing them to freeze in place for a bit as they try to recover.</description>
+        <iconPath>EBSA/Gene_StartlingScreech</iconPath>
+        <aiCanUse>True</aiCanUse>
+        <ai_SearchAOEForTargets>True</ai_SearchAOEForTargets>
+        <targetRequired>False</targetRequired>
+        <cooldownTicksRange>60000</cooldownTicksRange>
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
+        <statBases>
+            <Ability_Duration>4</Ability_Duration>
+            <Ability_EffectRadius>5.9</Ability_EffectRadius>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>0.25</warmupTime>
+            <range>5.9</range>
+            <targetParams>
+                <canTargetSelf>True</canTargetSelf>
+                <canTargetLocations>True</canTargetLocations>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilityEffectWithDuration">
+                <compClass>EBSGFramework.CompAbilityEffect_StunNonCaster</compClass>
+                <goodwillImpact>-15</goodwillImpact>
+              </li>
+            <li Class="CompProperties_AbilityRequiresCapacity">
+                <capacity>Talking</capacity>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef>
+        <defName>EBSA_SirenCall</defName>
+        <label>siren call</label>
+        <description>Let out an enchanting call that causes the targets in the area to walk towards the caster uncontrollably.</description>
+        <iconPath>EBSA/Gene_SirenCall</iconPath>
+        <cooldownTicksRange>10000</cooldownTicksRange>
+        <aiCanUse>True</aiCanUse>
+        <displayOrder>300</displayOrder>
+        <sendMessageOnCooldownComplete>True</sendMessageOnCooldownComplete>
+        <statBases>
+            <Ability_Duration>8</Ability_Duration>
+            <Ability_EffectRadius>5.9</Ability_EffectRadius>
+        </statBases>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <range>19.9</range>
+            <warmupTime>3</warmupTime>
+            <soundCast>AnimalWarcall_Warmup</soundCast>
+            <targetParams>
+                <canTargetLocations>True</canTargetLocations>
+                <canTargetSelf>False</canTargetSelf>
+                <canTargetMechs>False</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="CompProperties_AbilityForceJob">
+                <compClass>EBSGFramework.CompAbilityEffect_ForceJobOnHostiles</compClass>
+                <jobDef>GotoMindControlled</jobDef>
+                <destination>Caster</destination>
+            </li>
+            <li Class="CompProperties_AbilityRequiresCapacity">
+                <capacity>Talking</capacity>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef Abstract="True" Name="EBSA_Needle">
+        <charges>6</charges>
+        <cooldownPerCharge>True</cooldownPerCharge>
+        <cooldownTicksRange>120000</cooldownTicksRange>
+        <verbProperties>
+            <verbClass>Verb_CastAbility</verbClass>
+            <warmupTime>1</warmupTime>
+            <range>19.9</range>
+            <targetParams>
+                <canTargetSelf>False</canTargetSelf>
+                <canTargetMechs>False</canTargetMechs>
+            </targetParams>
+        </verbProperties>
+        <comps>
+            <li Class="EBSGFramework.CompProperties_AbilityAbilityValidator">
+                <targetStatLimiters>
+                    <li>
+                        <stat>ToxicResistance</stat>
+                        <maxStatValue>0.4999</maxStatValue>
+                    </li>
+                </targetStatLimiters>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef ParentName="EBSA_Needle">
+        <defName>EBSA_BerserkNeedle</defName>
+        <label>berserk needle</label>
+        <description>Shoot a small needle from the wrist that causes the target become filled with irrational rage for a couple hours.</description>
+        <iconPath>EBSA/Gene_BerserkNeedle</iconPath>
+        <statBases>
+            <Ability_Duration>42</Ability_Duration>
+        </statBases>
+        <comps>
+            <li Class="CompProperties_AbilityGiveMentalState">
+                <compClass>CompAbilityEffect_GiveMentalState</compClass>
+                <stateDef>Berserk</stateDef>
+                <stateDefForMechs>BerserkMechanoid</stateDefForMechs> <!--Shouldn't ever occur, but gotta be safe-->
+                <goodwillImpact>-75</goodwillImpact>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef ParentName="EBSA_Needle">
+        <defName>EBSA_DebilitatingNeedle</defName>
+        <label>debilitating needle</label>
+        <description>Shoot a small needle from the wrist that causes the target's body to become sluggish.</description>
+        <iconPath>EBSA/Gene_DebilitatingNeedle</iconPath>
+        <statBases>
+            <Ability_Duration>21</Ability_Duration>
+        </statBases>
+        <comps>
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>EBSA_DebilitatingNeedle</hediffDef>
+                <replaceExisting>true</replaceExisting>
+            </li>
+        </comps>
+    </AbilityDef>
+
+    <AbilityDef ParentName="EBSA_Needle">
+        <defName>EBSA_PacifyingNeedle</defName>
+        <label>pacifying needle</label>
+        <description>Shoot a small needle from the wrist that causes the target to feel soothed, ending any mental breaks they may have and increasing their mood for a while. While they may feel calmer, their minds will also be somewhat clouded.</description>
+        <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
+        <iconPath>EBSA/Gene_PacifyingNeedle</iconPath>
+        <aiCanUse>False</aiCanUse>
+        <hostile>False</hostile>
+        <statBases>
+            <Ability_Duration>1000</Ability_Duration>
+        </statBases>
+        <comps Inherit="False">
+            <li Class="CompProperties_AbilityGiveHediff">
+                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <hediffDef>EBSA_PacifyingNeedle</hediffDef>
+                <onlyBrain>True</onlyBrain>
+                <replaceExisting>true</replaceExisting>
+            </li>
+            <li Class="EBSGFramework.CompProperties_AbilityStopMentalNoPsychic">
+                <exceptions><li>Jailbreaker</li></exceptions>
+                <mustHaveMentalState>False</mustHaveMentalState>
+                <majorChance>1</majorChance>
+                <extremeChance>1</extremeChance>
+            </li>
+        </comps>
+    </AbilityDef>
+</Defs>
