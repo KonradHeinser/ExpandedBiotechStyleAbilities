@@ -441,7 +441,7 @@
         </verbProperties>
         <comps>
             <li Class="CompProperties_AbilityGiveHediff">
-                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <compClass>EBSGFramework.CompAbilityEffect_HostileGiveHediff</compClass>
                 <hediffDef>EBSA_BlindingLuminescence</hediffDef>
                 <ignoreSelf>True</ignoreSelf>
                 <replaceExisting>true</replaceExisting>
@@ -511,7 +511,7 @@
         </verbProperties>
         <comps>
             <li Class="CompProperties_AbilityGiveHediff">
-                <compClass>CompAbilityEffect_GiveHediff</compClass>
+                <compClass>EBSGFramework.CompAbilityEffect_HostileGiveHediff</compClass>
                 <hediffDef>EBSA_DisorientingScreech</hediffDef>
                 <ignoreSelf>True</ignoreSelf>
                 <replaceExisting>true</replaceExisting>
