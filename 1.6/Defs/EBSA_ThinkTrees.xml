@@ -56,9 +56,9 @@
                 <li Class="ThinkNode_ConditionalHasAbility">
                     <ability>EBSA_SmokeCloud</ability> <!--Creates a smoke cloud if the pawn has been shot in the past half hour-->
                     <subNodes>
-                        <li Class="ThinkNode_ConditionalAbilityCastLastTick">
+                        <li Class="EBSGFramework.ThinkNode_ConditionalAbilityCastLastTickOrNever">
                             <ability>EBSA_SmokeCloud</ability>
-                            <minTicksAgo>1200</minTicksAgo>
+                            <minTicksAgo>300</minTicksAgo>
                             <subNodes>
                                 <li Class="JobGiver_AICastAbilityOnSelf">
                                     <ability>EBSA_SmokeCloud</ability>
@@ -358,9 +358,9 @@
                         <li Class="ThinkNode_ConditionalHasAbility">
                             <ability>EBSA_SmokeCloud</ability> <!--Creates a smoke cloud if the pawn has been shot in the past half hour-->
                             <subNodes>
-                                <li Class="ThinkNode_ConditionalAbilityCastLastTick">
+                                <li Class="EBSGFramework.ThinkNode_ConditionalAbilityCastLastTickOrNever">
                                     <ability>EBSA_SmokeCloud</ability>
-                                    <minTicksAgo>1200</minTicksAgo>
+                                    <minTicksAgo>300</minTicksAgo>
                                     <subNodes>
                                         <li Class="JobGiver_AICastAbilityOnSelf">
                                             <ability>EBSA_SmokeCloud</ability>
@@ -660,9 +660,9 @@
                         <li Class="ThinkNode_ConditionalHasAbility">
                             <ability>EBSA_SmokeCloud</ability> <!--Creates a smoke cloud if the pawn has been shot in the past half hour-->
                             <subNodes>
-                                <li Class="ThinkNode_ConditionalAbilityCastLastTick">
+                                <li Class="EBSGFramework.ThinkNode_ConditionalAbilityCastLastTickOrNever">
                                     <ability>EBSA_SmokeCloud</ability>
-                                    <minTicksAgo>1200</minTicksAgo>
+                                    <minTicksAgo>300</minTicksAgo>
                                     <subNodes>
                                         <li Class="JobGiver_AICastAbilityOnSelf">
                                             <ability>EBSA_SmokeCloud</ability>
