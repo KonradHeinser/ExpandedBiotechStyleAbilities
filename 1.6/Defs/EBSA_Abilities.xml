@@ -286,6 +286,8 @@
         <hotKey>Misc1</hotKey>
         <hostile>False</hostile>
         <casterMustBeCapableOfViolence>False</casterMustBeCapableOfViolence>
+        <displayGizmoWhileUndrafted>True</displayGizmoWhileUndrafted>
+        <disableGizmoWhileUndrafted>False</disableGizmoWhileUndrafted>
         <aiCanUse>False</aiCanUse>
         <targetRequired>False</targetRequired>
         <cooldownTicksRange>2500</cooldownTicksRange>
