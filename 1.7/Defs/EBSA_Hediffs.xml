@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <HediffDef Name="EBSA_HediffBase" Abstract="True">
+        <hediffClass>HediffWithComps</hediffClass>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <showRemainingTime>True</showRemainingTime>
+            </li>
+            <li Class="HediffCompProperties_DisappearsOnDeath"/>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="EBSA_HediffBase">
+        <defName>EBSA_DeadendNerves</defName>
+        <label>deadend nerves</label>
+        <description>Pyschologically-induced pain insensitivity.</description>
+        <isBad>false</isBad>
+        <stages>
+            <li>
+                <painFactor>0.1</painFactor>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <HediffDef ParentName="EBSA_HediffBase">
+        <defName>EBSA_DebilitatingNeedle</defName>
+        <label>debilitating needle</label>
+        <description>Slugishness caused by a poison needle.</description>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <postFactor>0.4</postFactor>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <HediffDef ParentName="EBSA_HediffBase">
+        <defName>EBSA_Chameleonlike</defName>
+        <label>chameleon</label>
+        <description>This pawn is blending into the environment, making it nigh-impossible to keep track of their location.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <isBad>false</isBad>
+        <comps>
+            <li Class="HediffCompProperties_Invisibility">
+                <visibleToPlayer>true</visibleToPlayer>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="EBSA_HediffBase">
+        <defName>EBSA_BlindingLuminescence</defName>
+        <label>blinding luminescence</label>
+        <description>Blurred and spotty vision caused by a sudden blinding light.</description>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Sight</capacity>
+                        <postFactor>0.2</postFactor>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+
+    <HediffDef ParentName="EBSA_HediffBase">
+        <defName>EBSA_DisorientingScreech</defName>
+        <label>disorienting screech</label>
+        <description>All that can be heard is ringing, and it's hard to walk in a straight line.</description>
+        <hediffClass>HediffWithComps</hediffClass>
+        <stages>
+            <li>
+                <vomitMtbDays>0.0001</vomitMtbDays>
+            </li>
+        </stages>
+        <comps>
+            <li Class="HediffCompProperties_Disorientation">
+                <wanderMtbHours>0.05</wanderMtbHours>
+                <singleWanderDurationTicks>180</singleWanderDurationTicks>
+                <wanderRadius>3</wanderRadius>
+            </li>
+        </comps>
+    </HediffDef>
+
+    <HediffDef ParentName="EBSA_HediffBase">
+        <defName>EBSA_PacifyingNeedle</defName>
+        <label>pacifying needle</label>
+        <description>A clouded, but content, mind.</description>
+        <stages>
+            <li>
+                <partEfficiencyOffset>-0.20</partEfficiencyOffset>
+            </li>
+        </stages>  
+    </HediffDef>
+
+    <ThoughtDef>
+        <defName>EBSA_PacifyingNeedle</defName>
+        <workerClass>ThoughtWorker_Hediff</workerClass>
+        <hediff>EBSA_PacifyingNeedle</hediff>
+        <validWhileDespawned>true</validWhileDespawned>
+        <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+        <stages>
+          <li>
+            <label>pacifying needle</label>
+            <description>No matter what happens, I feel like I'm okay with it for some reason.</description>
+            <baseMoodEffect>30</baseMoodEffect>
+          </li>
+        </stages>
+      </ThoughtDef>
+    
+</Defs>

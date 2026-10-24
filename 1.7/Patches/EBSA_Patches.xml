@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/GeneDef[defName="FoamSpray"]/displayOrderInCategory</xpath>
+        <match Class="PatchOperationReplace">
+            <xpath>Defs/GeneDef[defName="FoamSpray"]/displayOrderInCategory</xpath>
+            <value>
+                <displayOrderInCategory>1</displayOrderInCategory>
+            </value>
+        </match>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/GeneDef[defName="FoamSpray"]</xpath>
+            <value>
+                <displayOrderInCategory>1</displayOrderInCategory>
+            </value>
+        </nomatch>
+    </Operation>
+
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/GeneDef[defName="AcidSpray"]/displayOrderInCategory</xpath>
+        <match Class="PatchOperationReplace">
+            <xpath>Defs/GeneDef[defName="AcidSpray"]/displayOrderInCategory</xpath>
+            <value>
+                <displayOrderInCategory>2</displayOrderInCategory>
+            </value>
+        </match>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/GeneDef[defName="AcidSpray"]</xpath>
+            <value>
+                <displayOrderInCategory>2</displayOrderInCategory>
+            </value>
+        </nomatch>
+    </Operation>
+
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/GeneDef[defName="FireSpew"]/displayOrderInCategory</xpath>
+        <match Class="PatchOperationReplace">
+            <xpath>Defs/GeneDef[defName="FireSpew"]/displayOrderInCategory</xpath>
+            <value>
+                <displayOrderInCategory>3</displayOrderInCategory>
+            </value>
+        </match>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/GeneDef[defName="FireSpew"]</xpath>
+            <value>
+                <displayOrderInCategory>3</displayOrderInCategory>
+            </value>
+        </nomatch>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/EBSGFramework.EBSGRecorder[defName="EBSG_Recorder"]/thinkTreeSettings</xpath>
+        <value>
+            <li>
+                <uniqueID>EBS_Abilities</uniqueID>
+                <label>EBS - Abilities</label>
+                <description>These settings determine what abilities your colonists can cast without you explicitly telling them. Remember to enable colonist and drafted autocast the EBSG Framework section if you want these to be used, and that the check marks next to the mod names do not alter the settings themselves, they just hide that menu temporarily.</description>
+                <individualSettings>
+                    <li>
+                        <settingID>FireSpray</settingID>
+                        <label>Fire spray</label>
+                        <description>Allow colonists to use fire spray automatically.</description>
+                        <defaultSetting>False</defaultSetting>
+                    </li>
+                    <li>
+                        <settingID>AcidSpew</settingID>
+                        <label>Acid spew</label>
+                        <description>Allow colonists to use acid spew automatically.</description>
+                        <defaultSetting>False</defaultSetting>
+                    </li>
+                    <li>
+                        <settingID>BloodSpew</settingID>
+                        <label>Blood spew</label>
+                        <description>Allow colonists to use blood spew automatically.</description>
+                        <defaultSetting>False</defaultSetting>
+                    </li>
+                    <li>
+                        <settingID>Chemburst</settingID>
+                        <label>Chemburst</label>
+                        <description>Allow colonists to use chemburst automatically.</description>
+                        <defaultSetting>False</defaultSetting>
+                    </li>
+                    <li>
+                        <settingID>Pounce</settingID>
+                        <label>Pounce</label>
+                        <description>Allow colonists to use pounce to automatically escape when below half health.</description>
+                        <defaultSetting>False</defaultSetting>
+                    </li>
+                    <li>
+                        <settingID>HemogenRefiner</settingID>
+                        <label>Hemogen refiner</label>
+                        <description>Allow colonists to use hemogen refiner when almost out of hemogen and completely free of bloodloss. This will not activate if there's an active enemy on the map.</description>
+                        <defaultSetting>False</defaultSetting>
+                    </li>
+                    <li>
+                        <settingID>DeadenNerves</settingID>
+                        <label>Deaden nerves</label>
+                        <description>Allow colonists to use deaden nerves automatically after taking damage. This will only activate if there's still an active enemy on the map, and they've lost at least 25% health to avoid wasteful casts.</description>
+                        <defaultSetting>False</defaultSetting>
+                    </li>
+                    <li>
+                        <settingID>ChameleonLike</settingID>
+                        <label>Chameleon-like</label>
+                        <description>Allow colonists to use chameleon-like automatically after being injured. This will only activate while there's an active enemy on the map.</description>
+                        <defaultSetting>False</defaultSetting>
+                    </li>
+                    <li>
+                        <settingID>BlindingLuminescence</settingID>
+                        <label>Blinding luminescence</label>
+                        <description>Allow colonists to use blinding luminescence automatically.</description>
+                        <defaultSetting>False</defaultSetting>
+                    </li>
+                    <li>
+                        <settingID>SmokeCloud</settingID>
+                        <label>Smoke cloud</label>
+                        <description>Allow colonists to use smoke cloud automatically.</description>
+                        <defaultSetting>False</defaultSetting>
+                    </li>
+                    <li>
+                        <settingID>DisorientingScreech</settingID>
+                        <label>Disorienting screech</label>
+                        <description>Allow colonists to use disorienting screech automatically.</description>
+                        <defaultSetting>False</defaultSetting>
+                    </li>
+                    <li>
+                        <settingID>StartlingScreech</settingID>
+                        <label>Startling screech</label>
+                        <description>Allow colonists to use startling screech automatically.</description>
+                        <defaultSetting>False</defaultSetting>
+                    </li>
+                    <li>
+                        <settingID>BerserkNeedle</settingID>
+                        <label>Berserk needle</label>
+                        <description>Allow colonists to use berserk needle automatically. There are checks in place to help avoid having colonists use all of their charges in quick succession.</description>
+                        <defaultSetting>False</defaultSetting>
+                    </li>
+                    <li>
+                        <settingID>DebilitatingNeedle</settingID>
+                        <label>Debilitating needle</label>
+                        <description>Allow colonists to use debilitating needle automatically. There are checks in place to help avoid having colonists use all of their charges in quick succession.</description>
+                        <defaultSetting>False</defaultSetting>
+                    </li>
+                </individualSettings>
+            </li>
+        </value>
+    </Operation>
+</Patch>

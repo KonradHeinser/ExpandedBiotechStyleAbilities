@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThingDef>
+        <defName>EBSA_Proj_ChemFire</defName>
+        <label>fire</label>
+        <!--This class does all of the liquid projectile stuff, and immediately after that it does all the explosion stuff available to projectiles. Explosion deals 0 damage
+        This class can be used by anyone who has the EBSG Framework as a prerequisite, but I don't list it on the wiki due to the niche use-->
+        <thingClass>EBSGFramework.Projectile_LiquidExplosion</thingClass>
+        <category>Projectile</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>Projectile</altitudeLayer>
+        <useHitPoints>False</useHitPoints>
+        <neverMultiSelect>True</neverMultiSelect>
+        <graphicData>
+            <texPath>EBSA/Fire</texPath>
+            <graphicClass>Graphic_Random</graphicClass>
+            <shaderType>MoteGlow</shaderType>
+            <drawSize>0.85</drawSize>
+        </graphicData>
+        <projectile>
+            <damageDef>Flame</damageDef>
+            <speed>25</speed>
+            <damageAmountBase>20</damageAmountBase>
+            <arcHeightFactor>0.4</arcHeightFactor>
+            <armorPenetrationBase>0.3</armorPenetrationBase>
+            <stoppingPower>1</stoppingPower>
+            <shadowSize>0</shadowSize>
+            <filth>Filth_Fuel</filth>
+            <explosionRadius>0.9</explosionRadius> <!--Because this technically is a 3x3 of projectiles, the radius of each projectile needs to be low-->
+            <explosionChanceToStartFire>1</explosionChanceToStartFire>
+            <doExplosionVFX>False</doExplosionVFX> <!--Makes the explosion look less like an explosion, and more like combustion-->
+            <!--If you want an explosion sound, you must include a soundExplode tag to add the sound manually, even if you just point to the normal sound the damage would cause on explosion-->
+            <filthCount>1</filthCount>
+            <ai_IsIncendiary>true</ai_IsIncendiary>
+        </projectile>
+    </ThingDef>
+    
+    <ThingDef ParentName="FilthBlood">
+        <defName>EBSA_BloodSpew</defName>
+        <label>blood</label>
+        <graphicData>
+            <drawSize>2</drawSize>
+        </graphicData>
+    </ThingDef>
+
+</Defs>
