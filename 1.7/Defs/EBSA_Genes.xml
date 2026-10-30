@@ -330,7 +330,7 @@
         </symbolPack>
     </GeneDef>
 
-    <GeneDef>
+    <GeneDef MayRequireAnyOf="Ludeon.Rimworld.Anomaly,Ludeon.Rimworld.Royalty">
         <defName>EBSA_Chameleonlike</defName>
         <label>chameleon-like</label>
         <description>Carriers of this gene have a unique inactive pigment in their skin that is normally not visible, but when activate it becomes visible and automatically shifts its colors to reflect the nearby environment, making it nigh-impossible to keep track of the pawn.</description>

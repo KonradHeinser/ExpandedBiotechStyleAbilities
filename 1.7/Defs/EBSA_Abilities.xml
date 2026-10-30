@@ -385,7 +385,7 @@
         </comps>
     </AbilityDef>
 
-    <AbilityDef>
+    <AbilityDef MayRequireAnyOf="Ludeon.Rimworld.Anomaly,Ludeon.Rimworld.Royalty">
         <defName>EBSA_Chameleonlike</defName>
         <label>chameleon-like</label>
         <description>Activate pigments in the skin that will temporarily make it nigh-impossible to be observed clearly.</description>

@@ -38,7 +38,7 @@
         </stages>
     </HediffDef>
 
-    <HediffDef ParentName="EBSA_HediffBase">
+    <HediffDef ParentName="EBSA_HediffBase" MayRequireAnyOf="Ludeon.Rimworld.Anomaly,Ludeon.Rimworld.Royalty">
         <defName>EBSA_Chameleonlike</defName>
         <label>chameleon</label>
         <description>This pawn is blending into the environment, making it nigh-impossible to keep track of their location.</description>

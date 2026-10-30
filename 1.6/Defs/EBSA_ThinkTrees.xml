@@ -134,7 +134,7 @@
         <insertPriority>100</insertPriority>
         <thinkRoot Class="ThinkNode_Priority">
             <subNodes>
-                <li Class="ThinkNode_ConditionalHasAbility"> <!--Turn invisible if damaged recently to buy time for other stuff-->
+                <li Class="ThinkNode_ConditionalHasAbility" MayRequireAnyOf="Ludeon.Rimworld.Anomaly,Ludeon.Rimworld.Royalty"> <!--Turn invisible if damaged recently to buy time for other stuff-->
                     <ability>EBSA_Chameleonlike</ability>
                     <subNodes>
                         <li Class="JobGiver_AICastAbilityOnSelf">
@@ -466,7 +466,7 @@
                     <uniqueID>EBS_Abilities</uniqueID>
                     <settingID>ChameleonLike</settingID>
                     <subNodes>
-                        <li Class="ThinkNode_ConditionalHasAbility"> <!--Turn invisible if damaged recently to buy time for other stuff-->
+                        <li Class="ThinkNode_ConditionalHasAbility" MayRequireAnyOf="Ludeon.Rimworld.Anomaly,Ludeon.Rimworld.Royalty"> <!--Turn invisible if damaged recently to buy time for other stuff-->
                             <ability>EBSA_Chameleonlike</ability>
                             <subNodes>
                                 <li Class="JobGiver_AICastAbilityOnSelf">
@@ -768,7 +768,7 @@
                     <uniqueID>EBS_Abilities</uniqueID>
                     <settingID>ChameleonLike</settingID>
                     <subNodes>
-                        <li Class="ThinkNode_ConditionalHasAbility"> <!--Turn invisible if damaged recently to buy time for other stuff-->
+                        <li Class="ThinkNode_ConditionalHasAbility" MayRequireAnyOf="Ludeon.Rimworld.Anomaly,Ludeon.Rimworld.Royalty"> <!--Turn invisible if damaged recently to buy time for other stuff-->
                             <ability>EBSA_Chameleonlike</ability>
                             <subNodes>
                                 <li Class="JobGiver_AICastAbilityOnSelf">
